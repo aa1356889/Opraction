@@ -1,0 +1,11 @@
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\bin\Debug\EntityFramework.dll
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\bin\Debug\EntityFramework.xml
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\obj\Debug\Jurisdiction.Entity.dll
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\obj\Debug\Jurisdiction.Entity.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\bin\Debug\Jurisdiction.Entity.dll.config
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\bin\Debug\Jurisdiction.Entity.dll
+G:\MyCode\MVC权限控制\Jurisdiction.Entity\bin\Debug\Jurisdiction.Entity.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Debug\Jurisdiction.Entity.dll.config
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Debug\Jurisdiction.Entity.dll
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Debug\Jurisdiction.Entity.pdb

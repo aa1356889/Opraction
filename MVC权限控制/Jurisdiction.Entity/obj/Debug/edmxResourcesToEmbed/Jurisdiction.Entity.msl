@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="jurisdictionModelStoreContainer" CdmEntityContainer="jurisdictionEntities">
+    <EntitySetMapping Name="Function">
+      <EntityTypeMapping TypeName="jurisdictionModel.Function">
+        <MappingFragment StoreEntitySet="Function">
+          <ScalarProperty Name="Fid" ColumnName="Fid" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Mid" ColumnName="Mid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="jurisdictionModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Mid" ColumnName="Mid" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ulr" ColumnName="ulr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opration">
+      <EntityTypeMapping TypeName="jurisdictionModel.Opration">
+        <MappingFragment StoreEntitySet="Opration">
+          <ScalarProperty Name="Oid" ColumnName="Oid" />
+          <ScalarProperty Name="Roid" ColumnName="Roid" />
+          <ScalarProperty Name="Mid" ColumnName="Mid" />
+          <ScalarProperty Name="Fid" ColumnName="Fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="jurisdictionModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Rid" ColumnName="Rid" />
+          <ScalarProperty Name="RName" ColumnName="RName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRole">
+      <EntityTypeMapping TypeName="jurisdictionModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="URid" ColumnName="URid" />
+          <ScalarProperty Name="Roid" ColumnName="Roid" />
+          <ScalarProperty Name="Uid" ColumnName="Uid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="jurisdictionModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="UpassWord" ColumnName="UpassWord" />
+          <ScalarProperty Name="Uname" ColumnName="Uname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

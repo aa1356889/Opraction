@@ -1,0 +1,7 @@
+G:\MyCode\MVC权限控制\Jurisdiction.IDAL\bin\Debug\Jurisdiction.IDAL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.IDAL\bin\Debug\Jurisdiction.IDAL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.IDAL\obj\Debug\Jurisdiction.IDAL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.IDAL\obj\Debug\Jurisdiction.IDAL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Debug\Jurisdiction.IDAL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Debug\Jurisdiction.IDAL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.IDAL\obj\Debug\Jurisdiction.IDAL.csprojResolveAssemblyReference.cache

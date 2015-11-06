@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jurisdictionModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="jurisdictionModelStoreContainer">
+    <EntitySet Name="Function" EntityType="jurisdictionModel.Store.Function" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menu" EntityType="jurisdictionModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Opration" EntityType="jurisdictionModel.Store.Opration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="jurisdictionModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRole" EntityType="jurisdictionModel.Store.UserRole" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="jurisdictionModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Fucntion_Menu_Fid" Association="jurisdictionModel.Store.FK_Fucntion_Menu_Fid">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Function" EntitySet="Function" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opration_Function_Fid" Association="jurisdictionModel.Store.FK_Opration_Function_Fid">
+      <End Role="Function" EntitySet="Function" />
+      <End Role="Opration" EntitySet="Opration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opration_Menu_Mid" Association="jurisdictionModel.Store.FK_Opration_Menu_Mid">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Opration" EntitySet="Opration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Opration_Role_Roid" Association="jurisdictionModel.Store.FK_Opration_Role_Roid">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Opration" EntitySet="Opration" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role_Roid" Association="jurisdictionModel.Store.FK_UserRole_Role_Roid">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Users_Uid" Association="jurisdictionModel.Store.FK_UserRole_Users_Uid">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Function">
+    <Key>
+      <PropertyRef Name="Fid" />
+    </Key>
+    <Property Name="Fid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="Area" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Controller" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Action" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Mid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Mid" />
+    </Key>
+    <Property Name="Mid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MName" Type="varchar" MaxLength="20" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="ulr" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Opration">
+    <Key>
+      <PropertyRef Name="Oid" />
+    </Key>
+    <Property Name="Oid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Roid" Type="int" Nullable="false" />
+    <Property Name="Mid" Type="int" Nullable="false" />
+    <Property Name="Fid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Rid" />
+    </Key>
+    <Property Name="Rid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RName" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="URid" />
+    </Key>
+    <Property Name="URid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Roid" Type="int" Nullable="false" />
+    <Property Name="Uid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginName" Type="varchar" MaxLength="20" />
+    <Property Name="UpassWord" Type="nchar" MaxLength="10" />
+    <Property Name="Uname" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK_Fucntion_Menu_Fid">
+    <End Role="Menu" Type="jurisdictionModel.Store.Menu" Multiplicity="1" />
+    <End Role="Function" Type="jurisdictionModel.Store.Function" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Mid" />
+      </Principal>
+      <Dependent Role="Function">
+        <PropertyRef Name="Mid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opration_Function_Fid">
+    <End Role="Function" Type="jurisdictionModel.Store.Function" Multiplicity="1" />
+    <End Role="Opration" Type="jurisdictionModel.Store.Opration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Function">
+        <PropertyRef Name="Fid" />
+      </Principal>
+      <Dependent Role="Opration">
+        <PropertyRef Name="Fid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opration_Menu_Mid">
+    <End Role="Menu" Type="jurisdictionModel.Store.Menu" Multiplicity="1" />
+    <End Role="Opration" Type="jurisdictionModel.Store.Opration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Mid" />
+      </Principal>
+      <Dependent Role="Opration">
+        <PropertyRef Name="Mid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Opration_Role_Roid">
+    <End Role="Roles" Type="jurisdictionModel.Store.Roles" Multiplicity="1" />
+    <End Role="Opration" Type="jurisdictionModel.Store.Opration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Rid" />
+      </Principal>
+      <Dependent Role="Opration">
+        <PropertyRef Name="Roid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role_Roid">
+    <End Role="Roles" Type="jurisdictionModel.Store.Roles" Multiplicity="1" />
+    <End Role="UserRole" Type="jurisdictionModel.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Rid" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Roid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Users_Uid">
+    <End Role="Users" Type="jurisdictionModel.Store.Users" Multiplicity="1" />
+    <End Role="UserRole" Type="jurisdictionModel.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Uid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,7 @@
+G:\MyCode\MVC权限控制\Jurisdiction.BLL\bin\Debug\Jurisdiction.BLL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.BLL\bin\Debug\Jurisdiction.BLL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.BLL\obj\Debug\Jurisdiction.BLL.csprojResolveAssemblyReference.cache
+G:\MyCode\MVC权限控制\Jurisdiction.BLL\obj\Debug\Jurisdiction.BLL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.BLL\obj\Debug\Jurisdiction.BLL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Jurisdiction.BLL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Jurisdiction.BLL.pdb

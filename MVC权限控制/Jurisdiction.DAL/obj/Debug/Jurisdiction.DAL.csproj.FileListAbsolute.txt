@@ -1,0 +1,15 @@
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\Jurisdiction.DAL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\Jurisdiction.DAL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\obj\Debug\Jurisdiction.DAL.csprojResolveAssemblyReference.cache
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\obj\Debug\Jurisdiction.DAL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\obj\Debug\Jurisdiction.DAL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\EntityFramework.dll
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\Jurisdiction.IDAL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\Jurisdiction.IDAL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\EntityFramework.resources.dll
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\EntityFramework.xml
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\Jurisdiction.Entity.dll
+G:\MyCode\MVC权限控制\Jurisdiction.DAL\bin\Debug\Jurisdiction.Entity.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Jurisdiction.DAL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.UI\bin\Jurisdiction.DAL.pdb

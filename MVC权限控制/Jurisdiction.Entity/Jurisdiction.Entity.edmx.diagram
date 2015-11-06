@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4ab5e1622a09418baebb23a8266ad8be" Name="关系图1">
+        <EntityTypeShape EntityType="jurisdictionModel.Function" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="jurisdictionModel.Menu" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="jurisdictionModel.Opration" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="jurisdictionModel.Roles" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jurisdictionModel.UserRole" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jurisdictionModel.Users" Width="1.5" PointX="3" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="jurisdictionModel.FK_Fucntion_Menu_Fid" ManuallyRouted="false" />
+        <AssociationConnector Association="jurisdictionModel.FK_Opration_Function_Fid" ManuallyRouted="false" />
+        <AssociationConnector Association="jurisdictionModel.FK_Opration_Menu_Mid" ManuallyRouted="false" />
+        <AssociationConnector Association="jurisdictionModel.FK_Opration_Role_Roid" ManuallyRouted="false" />
+        <AssociationConnector Association="jurisdictionModel.FK_UserRole_Role_Roid" ManuallyRouted="false" />
+        <AssociationConnector Association="jurisdictionModel.FK_UserRole_Users_Uid" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,10 @@
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\bin\Debug\Jurisdiction.IBLL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\bin\Debug\Jurisdiction.IBLL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\obj\Debug\Jurisdiction.IBLL.dll
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\obj\Debug\Jurisdiction.IBLL.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\bin\Debug\Jurisdiction.Entity.dll
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\bin\Debug\EntityFramework.dll
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\bin\Debug\Jurisdiction.Entity.pdb
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\bin\Debug\EntityFramework.xml
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\MyCode\MVC权限控制\Jurisdiction.IBLL\obj\Debug\Jurisdiction.IBLL.csprojResolveAssemblyReference.cache
