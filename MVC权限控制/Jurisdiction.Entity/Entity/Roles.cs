@@ -7,18 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jurisdiction.Entity
+namespace Jurisdiction.EntityView
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;  using Jurisdiction.Entity;
     public partial class Roles
     {
+        public Roles()
+        {
+       
+       
+        }
     
+        public int Rid { get; set; }
+        public string RName { get; set; }
     
-    
-    
-    
-    
+      
+      
     }
 }

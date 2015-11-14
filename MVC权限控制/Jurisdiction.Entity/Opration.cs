@@ -17,9 +17,8 @@ namespace Jurisdiction.Entity
         public int Oid { get; set; }
         public int Roid { get; set; }
         public int Mid { get; set; }
-        public int Fid { get; set; }
+        public Nullable<int> Fid { get; set; }
     
-        public virtual Function Function { get; set; }
         public virtual Menu Menu { get; set; }
         public virtual Roles Roles { get; set; }
     }

@@ -31,31 +31,34 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     var collectionNavigationProperties = typeMapper.GetCollectionNavigationProperties(entity);
     var complexProperties = typeMapper.GetComplexProperties(entity);
 
-    if (propertiesWithDefaultValues.Any() || collectionNavigationProperties.Any() || complexProperties.Any())
+   if (propertiesWithDefaultValues.Any() || collectionNavigationProperties.Any() || complexProperties.Any())
     {
 #>
-
+    public <#=code.Escape(entity)#>()
+    {
 <#
         foreach (var edmProperty in propertiesWithDefaultValues)
         {
 #>
-
+   
 <#
         }
 
         foreach (var navigationProperty in collectionNavigationProperties)
         {
 #>
+   
 <#
         }
 
         foreach (var complexProperty in complexProperties)
         {
 #>
+ 
 <#
         }
 #>
-
+    }
 
 <#
     }
@@ -66,7 +69,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
         foreach (var edmProperty in simpleProperties)
         {
 #>
-
+    <#=codeStringGenerator.Property(edmProperty)#>
 <#
         }
     }
@@ -79,6 +82,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
         foreach(var complexProperty in complexProperties)
         {
 #>
+
 <#
         }
     }
@@ -92,6 +96,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
         foreach (var navigationProperty in navigationProperties)
         {
 #>
+  
 <#
         }
     }
@@ -106,6 +111,8 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
     fileManager.StartNewFile(complex.Name + ".cs");
     BeginNamespace(code);
 #>
+<#=codeStringGenerator.UsingDirectives(inHeader: false, includeCollections: false)#>
+<#=Accessibility.ForType(complex)#> partial class <#=code.Escape(complex)#>
 {
 <#
     var complexProperties = typeMapper.GetComplexProperties(complex);
@@ -114,17 +121,20 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
     if (propertiesWithDefaultValues.Any() || complexProperties.Any())
     {
 #>
-
+    public <#=code.Escape(complex)#>()
+    {
 <#
         foreach (var edmProperty in propertiesWithDefaultValues)
         {
 #>
+     
 <#
         }
 
         foreach (var complexProperty in complexProperties)
         {
 #>
+       
 <#
         }
 #>
@@ -139,7 +149,7 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
         foreach(var edmProperty in simpleProperties)
         {
 #>
-    <#=codeStringGenerator.Property(edmProperty)#>
+   
 <#
         }
     }
@@ -152,7 +162,7 @@ foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollectio
         foreach(var edmProperty in complexProperties)
         {
 #>
-    <#=codeStringGenerator.Property(edmProperty)#>
+
 <#
         }
     }
@@ -168,6 +178,44 @@ foreach (var enumType in typeMapper.GetEnumItemsToGenerate(itemCollection))
     BeginNamespace(code);
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader: false, includeCollections: false)#>
+<#
+    if (typeMapper.EnumIsFlags(enumType))
+    {
+#>
+[Flags]
+<#
+    }
+#>
+<#=codeStringGenerator.EnumOpening(enumType)#>
+{
+<#
+    var foundOne = false;
+    
+    foreach (MetadataItem member in typeMapper.GetEnumMembers(enumType))
+    {
+        foundOne = true;
+#>
+   
+<#
+    }
+
+    if (foundOne)
+    {
+        this.GenerationEnvironment.Remove(this.GenerationEnvironment.Length - 3, 1);
+    }
+#>
+}
+<#
+    EndNamespace(code);
+    EndNamespace(code);
+}
+
+foreach (var enumType in typeMapper.GetEnumItemsToGenerate(itemCollection))
+{
+    fileManager.StartNewFile(enumType.Name + ".cs");
+    BeginNamespace(code);
+#>
+
 <#
     if (typeMapper.EnumIsFlags(enumType))
     {
@@ -226,7 +274,7 @@ public void BeginNamespace(CodeGenerationTools code)
     if (!String.IsNullOrEmpty(codeNamespace))
     {
 #>
-namespace <#=code.EscapeNamespace("Jurisdiction.Entity")#>
+namespace <#=code.EscapeNamespace("Jurisdiction.EntityView")#>
 {
 <#+
         PushIndent("    ");
@@ -410,7 +458,7 @@ public class CodeStringGenerator
                 "{0}using System;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
-                includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "",
+                includeCollections ? (Environment.NewLine + "using System.Collections.Generic;") : "","  using Jurisdiction.Entity;",
                 inHeader ? "" : Environment.NewLine)
             : "";
     }

@@ -7,16 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jurisdiction.Entity
+namespace Jurisdiction.EntityView
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;  using Jurisdiction.Entity;
     public partial class UserRole
     {
+        public int URid { get; set; }
+        public int Roid { get; set; }
+        public int Uid { get; set; }
     
-    
-    
-    
+      
+      
     }
 }

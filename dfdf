@@ -1,0 +1,419 @@
+[1mdiff --git "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/Jurisdiction.UI/Views/Web.config" "b/MVC\346\235\203\351\231\220\346\216\247\345\210\266/Jurisdiction.UI/Views/Web.config"[m
+[1mdeleted file mode 100644[m
+[1mindex ec8e5dd..0000000[m
+[1m--- "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/Jurisdiction.UI/Views/Web.config"[m
+[1m+++ /dev/null[m
+[36m@@ -1,58 +0,0 @@[m
+[31m-﻿<?xml version="1.0" encoding="utf-8"?>[m
+[31m-[m
+[31m-<configuration>[m
+[31m-  <configSections>[m
+[31m-    <sectionGroup name="system.web.webPages.razor" type="System.Web.WebPages.Razor.Configuration.RazorWebSectionGroup, System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35">[m
+[31m-      <section name="host" type="System.Web.WebPages.Razor.Configuration.HostSection, System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" />[m
+[31m-      <section name="pages" type="System.Web.WebPages.Razor.Configuration.RazorPagesSection, System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" requirePermission="false" />[m
+[31m-    </sectionGroup>[m
+[31m-  </configSections>[m
+[31m-[m
+[31m-  <system.web.webPages.razor>[m
+[31m-    <host factoryType="System.Web.Mvc.MvcWebRazorHostFactory, System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" />[m
+[31m-    <pages pageBaseType="System.Web.Mvc.WebViewPage">[m
+[31m-      <namespaces>[m
+[31m-        <add namespace="System.Web.Mvc" />[m
+[31m-        <add namespace="System.Web.Mvc.Ajax" />[m
+[31m-        <add namespace="System.Web.Mvc.Html" />[m
+[31m-        <add namespace="System.Web.Routing" />[m
+[31m-      </namespaces>[m
+[31m-    </pages>[m
+[31m-  </system.web.webPages.razor>[m
+[31m-[m
+[31m-  <appSettings>[m
+[31m-    <add key="webpages:Enabled" value="false" />[m
+[31m-  </appSettings>[m
+[31m-[m
+[31m-  <system.web>[m
+[31m-    <httpHandlers>[m
+[31m-      <add path="*" verb="*" type="System.Web.HttpNotFoundHandler"/>[m
+[31m-    </httpHandlers>[m
+[31m-[m
+[31m-    <!--[m
+[31m-        在视图页面中启用请求验证将导致验证在[m
+[31m-        控制器已对输入进行处理后发生。默认情况下，[m
+[31m-        MVC 在控制器处理输入前执行请求验证。[m
+[31m-        若要更改此行为，请对控制器或操作[m
+[31m-        应用 ValidateInputAttribute。[m
+[31m-    -->[m
+[31m-    <pages[m
+[31m-        validateRequest="false"[m
+[31m-        pageParserFilterType="System.Web.Mvc.ViewTypeParserFilter, System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"[m
+[31m-        pageBaseType="System.Web.Mvc.ViewPage, System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35"[m
+[31m-        userControlBaseType="System.Web.Mvc.ViewUserControl, System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35">[m
+[31m-      <controls>[m
+[31m-        <add assembly="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" namespace="System.Web.Mvc" tagPrefix="mvc" />[m
+[31m-      </controls>[m
+[31m-    </pages>[m
+[31m-  </system.web>[m
+[31m-[m
+[31m-  <system.webServer>[m
+[31m-    <validation validateIntegratedModeConfiguration="false" />[m
+[31m-[m
+[31m-    <handlers>[m
+[31m-      <remove name="BlockViewHandler"/>[m
+[31m-      <add name="BlockViewHandler" path="*" verb="*" preCondition="integratedMode" type="System.Web.HttpNotFoundHandler" />[m
+[31m-    </handlers>[m
+[31m-  </system.webServer>[m
+[31m-</configuration>[m
+[1mdiff --git "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/Newtonsoft.Json.4.5.6.nupkg" "b/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/Newtonsoft.Json.4.5.6.nupkg"[m
+[1mdeleted file mode 100644[m
+[1mindex cf81617..0000000[m
+Binary files "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/Newtonsoft.Json.4.5.6.nupkg" and /dev/null differ
+[1mdiff --git "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/lib/net40/Newtonsoft.Json.dll" "b/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/lib/net40/Newtonsoft.Json.dll"[m
+[1mdeleted file mode 100644[m
+[1mindex 7fe9514..0000000[m
+Binary files "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/lib/net40/Newtonsoft.Json.dll" and /dev/null differ
+[1mdiff --git "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/lib/net40/Newtonsoft.Json.xml" "b/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/lib/net40/Newtonsoft.Json.xml"[m
+[1mdeleted file mode 100644[m
+[1mindex e91d694..0000000[m
+[1m--- "a/MVC\346\235\203\351\231\220\346\216\247\345\210\266/packages/Newtonsoft.Json.4.5.6/lib/net40/Newtonsoft.Json.xml"[m
+[1m+++ /dev/null[m
+[36m@@ -1,7583 +0,0 @@[m
+[31m-<?xml version="1.0"?>[m
+[31m-<doc>[m
+[31m-    <assembly>[m
+[31m-        <name>Newtonsoft.Json</name>[m
+[31m-    </assembly>[m
+[31m-    <members>[m
+[31m-        <member name="T:Newtonsoft.Json.Bson.BsonReader">[m
+[31m-            <summary>[m
+[31m-            Represents a reader that provides fast, non-cached, forward-only access to serialized Json data.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="T:Newtonsoft.Json.JsonReader">[m
+[31m-            <summary>[m
+[31m-            Represents a reader that provides fast, non-cached, forward-only access to serialized Json data.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.#ctor">[m
+[31m-            <summary>[m
+[31m-            Initializes a new instance of the <see cref="T:Newtonsoft.Json.JsonReader"/> class with the specified <see cref="T:System.IO.TextReader"/>.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.Read">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream.[m
+[31m-            </summary>[m
+[31m-            <returns>true if the next token was read successfully; false if there are no more tokens to read.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.ReadAsInt32">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.Nullable`1"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.ReadAsString">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.String"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.String"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.ReadAsBytes">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:Byte[]"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:Byte[]"/> or a null reference if the next JSON token is null. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.ReadAsDecimal">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.Nullable`1"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.ReadAsDateTime">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.String"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.ReadAsDateTimeOffset">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.Nullable`1"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.Skip">[m
+[31m-            <summary>[m
+[31m-            Skips the children of the current token.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken)">[m
+[31m-            <summary>[m
+[31m-            Sets the current token.[m
+[31m-            </summary>[m
+[31m-            <param name="newToken">The new token.</param>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken,System.Object)">[m
+[31m-            <summary>[m
+[31m-            Sets the current token and value.[m
+[31m-            </summary>[m
+[31m-            <param name="newToken">The new token.</param>[m
+[31m-            <param name="value">The value.</param>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.SetStateBasedOnCurrent">[m
+[31m-            <summary>[m
+[31m-            Sets the state based on current token type.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.System#IDisposable#Dispose">[m
+[31m-            <summary>[m
+[31m-            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.Dispose(System.Boolean)">[m
+[31m-            <summary>[m
+[31m-            Releases unmanaged and - optionally - managed resources[m
+[31m-            </summary>[m
+[31m-            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.JsonReader.Close">[m
+[31m-            <summary>[m
+[31m-            Changes the <see cref="T:Newtonsoft.Json.JsonReader.State"/> to Closed. [m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.CurrentState">[m
+[31m-            <summary>[m
+[31m-            Gets the current reader state.[m
+[31m-            </summary>[m
+[31m-            <value>The current reader state.</value>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.CloseInput">[m
+[31m-            <summary>[m
+[31m-            Gets or sets a value indicating whether the underlying stream or[m
+[31m-            <see cref="T:System.IO.TextReader"/> should be closed when the reader is closed.[m
+[31m-            </summary>[m
+[31m-            <value>[m
+[31m-            true to close the underlying stream or <see cref="T:System.IO.TextReader"/> when[m
+[31m-            the reader is closed; otherwise false. The default is true.[m
+[31m-            </value>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.QuoteChar">[m
+[31m-            <summary>[m
+[31m-            Gets the quotation mark character used to enclose the value of a string.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.DateTimeZoneHandling">[m
+[31m-            <summary>[m
+[31m-            Get or set how <see cref="T:System.DateTime"/> time zones are handling when reading JSON.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.DateParseHandling">[m
+[31m-            <summary>[m
+[31m-            Get or set how date formatted strings, e.g. "\/Date(1198908717056)\/" and "2012-03-21T05:40Z", are parsed when reading JSON.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.MaxDepth">[m
+[31m-            <summary>[m
+[31m-            Gets or sets the maximum depth allowed when reading JSON. Reading past this depth will throw a <see cref="T:Newtonsoft.Json.JsonReaderException"/>.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.TokenType">[m
+[31m-            <summary>[m
+[31m-            Gets the type of the current JSON token. [m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.Value">[m
+[31m-            <summary>[m
+[31m-            Gets the text value of the current JSON token.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.ValueType">[m
+[31m-            <summary>[m
+[31m-            Gets The Common Language Runtime (CLR) type for the current JSON token.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.Depth">[m
+[31m-            <summary>[m
+[31m-            Gets the depth of the current token in the JSON document.[m
+[31m-            </summary>[m
+[31m-            <value>The depth of the current token in the JSON document.</value>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.Path">[m
+[31m-            <summary>[m
+[31m-            Gets the path of the current JSON token. [m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.JsonReader.Culture">[m
+[31m-            <summary>[m
+[31m-            Gets or sets the culture used when reading JSON. Defaults to <see cref="P:System.Globalization.CultureInfo.InvariantCulture"/>.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="T:Newtonsoft.Json.JsonReader.State">[m
+[31m-            <summary>[m
+[31m-            Specifies the state of the reader.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Start">[m
+[31m-            <summary>[m
+[31m-            The Read method has not been called.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Complete">[m
+[31m-            <summary>[m
+[31m-            The end of the file has been reached successfully.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Property">[m
+[31m-            <summary>[m
+[31m-            Reader is at a property.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.ObjectStart">[m
+[31m-            <summary>[m
+[31m-            Reader is at the start of an object.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Object">[m
+[31m-            <summary>[m
+[31m-            Reader is in an object.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.ArrayStart">[m
+[31m-            <summary>[m
+[31m-            Reader is at the start of an array.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Array">[m
+[31m-            <summary>[m
+[31m-            Reader is in an array.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Closed">[m
+[31m-            <summary>[m
+[31m-            The Close method has been called.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.PostValue">[m
+[31m-            <summary>[m
+[31m-            Reader has just read a value.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.ConstructorStart">[m
+[31m-            <summary>[m
+[31m-            Reader is at the start of a constructor.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Constructor">[m
+[31m-            <summary>[m
+[31m-            Reader in a constructor.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Error">[m
+[31m-            <summary>[m
+[31m-            An error occurred that prevents the read operation from continuing.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="F:Newtonsoft.Json.JsonReader.State.Finished">[m
+[31m-            <summary>[m
+[31m-            The end of the file has been reached successfully.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.#ctor(System.IO.Stream)">[m
+[31m-            <summary>[m
+[31m-            Initializes a new instance of the <see cref="T:Newtonsoft.Json.Bson.BsonReader"/> class.[m
+[31m-            </summary>[m
+[31m-            <param name="stream">The stream.</param>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.#ctor(System.IO.BinaryReader)">[m
+[31m-            <summary>[m
+[31m-            Initializes a new instance of the <see cref="T:Newtonsoft.Json.Bson.BsonReader"/> class.[m
+[31m-            </summary>[m
+[31m-            <param name="reader">The reader.</param>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.#ctor(System.IO.Stream,System.Boolean,System.DateTimeKind)">[m
+[31m-            <summary>[m
+[31m-            Initializes a new instance of the <see cref="T:Newtonsoft.Json.Bson.BsonReader"/> class.[m
+[31m-            </summary>[m
+[31m-            <param name="stream">The stream.</param>[m
+[31m-            <param name="readRootValueAsArray">if set to <c>true</c> the root object will be read as a JSON array.</param>[m
+[31m-            <param name="dateTimeKindHandling">The <see cref="T:System.DateTimeKind"/> used when reading <see cref="T:System.DateTime"/> values from BSON.</param>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.#ctor(System.IO.BinaryReader,System.Boolean,System.DateTimeKind)">[m
+[31m-            <summary>[m
+[31m-            Initializes a new instance of the <see cref="T:Newtonsoft.Json.Bson.BsonReader"/> class.[m
+[31m-            </summary>[m
+[31m-            <param name="reader">The reader.</param>[m
+[31m-            <param name="readRootValueAsArray">if set to <c>true</c> the root object will be read as a JSON array.</param>[m
+[31m-            <param name="dateTimeKindHandling">The <see cref="T:System.DateTimeKind"/> used when reading <see cref="T:System.DateTime"/> values from BSON.</param>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.ReadAsBytes">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:Byte[]"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>[m
+[31m-            A <see cref="T:Byte[]"/> or a null reference if the next JSON token is null. This method will return <c>null</c> at the end of an array.[m
+[31m-            </returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.ReadAsDecimal">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.Nullable`1"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.ReadAsInt32">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.Nullable`1"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.ReadAsString">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.String"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.String"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.ReadAsDateTime">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>A <see cref="T:System.String"/>. This method will return <c>null</c> at the end of an array.</returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.ReadAsDateTimeOffset">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream as a <see cref="T:System.Nullable`1"/>.[m
+[31m-            </summary>[m
+[31m-            <returns>[m
+[31m-            A <see cref="T:System.Nullable`1"/>. This method will return <c>null</c> at the end of an array.[m
+[31m-            </returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.Read">[m
+[31m-            <summary>[m
+[31m-            Reads the next JSON token from the stream.[m
+[31m-            </summary>[m
+[31m-            <returns>[m
+[31m-            true if the next token was read successfully; false if there are no more tokens to read.[m
+[31m-            </returns>[m
+[31m-        </member>[m
+[31m-        <member name="M:Newtonsoft.Json.Bson.BsonReader.Close">[m
+[31m-            <summary>[m
+[31m-            Changes the <see cref="T:Newtonsoft.Json.JsonReader.State"/> to Closed.[m
+[31m-            </summary>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.Bson.BsonReader.JsonNet35BinaryCompatibility">[m
+[31m-            <summary>[m
+[31m-            Gets or sets a value indicating whether binary data reading should compatible with incorrect Json.NET 3.5 written binary.[m
+[31m-            </summary>[m
+[31m-            <value>[m
+[31m-            	<c>true</c> if binary data reading will be compatible with incorrect Json.NET 3.5 written binary; otherwise, <c>false</c>.[m
+[31m-            </value>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.Bson.BsonReader.ReadRootValueAsArray">[m
+[31m-            <summary>[m
+[31m-            Gets or sets a value indicating whether the root object will be read as a JSON array.[m
+[31m-            </summary>[m
+[31m-            <value>[m
+[31m-            	<c>true</c> if the root object will be read as a JSON array; otherwise, <c>false</c>.[m
+[31m-            </value>[m
+[31m-        </member>[m
+[31m-        <member name="P:Newtonsoft.Json.Bson.BsonReader.DateTimeKindHandling">[m
+[31m-            <summary>[m
+[31m-            Gets or sets the <see cref="T:System.DateTimeKind"/> used when reading <see cref="T:System.DateTime"/> values from BSON.[m
+[31m-            </summary>[m
+[31m-            <value>The <see cref="T:System.DateTimeKind"/> used when reading <see cref="T:System.DateTime"/> values from BSON

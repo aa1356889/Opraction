@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jurisdiction.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,7 +10,14 @@ namespace Jurisdiction.IDAL
 {
    public interface IBaseDAL<T> where T:class
     {
-       
+
+       /// <summary>
+       /// 根据指定条件查询用户数据
+       /// </summary>
+       /// <param name="where"></param>
+       /// <returns></returns>
+       IQueryable<T> Query(Expression<Func<T, bool>> where);
+
        /// <summary>
        /// 分页查询数据
        /// </summary>

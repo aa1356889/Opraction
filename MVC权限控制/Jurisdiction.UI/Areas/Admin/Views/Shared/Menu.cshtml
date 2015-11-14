@@ -1,0 +1,39 @@
+﻿@using  Jurisdiction.IBLL
+@using Jurisdiction.Entity
+@{
+   //MenuIBLL menuBLll= Jurisdiction.UI.App_Start.AutofacRegister.Resove<MenuIBLL>();
+    List<Jurisdiction.Extend.OpractionsExtend> menus =base.Opracton .Where(c => c.ActionName == "浏览").ToList<Jurisdiction.Extend.OpractionsExtend>();
+}	
+
+<div id="sidebar-left" class="span2">
+				<div class="nav-collapse sidebar-nav">
+                        @(new MvcHtmlString("<ul class=\"nav nav-tabs nav-stacked main-menu\">"))
+                        @LoadMenu(-1, menus);
+                      @(new MvcHtmlString("<ul>"))
+				</div>
+			</div>
+
+@*递归生成菜单树*@
+@helper LoadMenu(int id, List<Jurisdiction.Extend.OpractionsExtend> menu)
+{
+    foreach (var item in menu)
+    {
+      
+        if(item.PrentId==id){
+             if(item.PrentId==-1){
+          
+           <li><a class="dropmenu" href="@item.Murl"><i class="@item.MIco"></i><span class="hidden-tablet">@item.MName</span></a>
+                 @LoadMenu(item.Mid,menu);
+                </li>
+             }else{
+            <ul >
+         <li><a class="submenu" href="@item.Murl"><i class="@item.MIco"></i><span class="hidden-tablet">@item.MName</span></a>"))
+               @LoadMenu(item.Mid,menu);
+              </li>
+                </ul>
+             }
+          
+        }
+      
+    }
+}

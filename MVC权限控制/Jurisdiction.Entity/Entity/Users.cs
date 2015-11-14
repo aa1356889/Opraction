@@ -7,20 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jurisdiction.Entity
+namespace Jurisdiction.EntityView
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;  using Jurisdiction.Entity;
     public partial class Users
     {
+        public Users()
+        {
+       
+        }
     
+        public int uid { get; set; }
+        public string UpassWord { get; set; }
+        public string Uname { get; set; }
+        public string LoginName { get; set; }
+        public string HeadPortraitUrl { get; set; }
     
-    
-    
-    
-    
-    
-    
+      
     }
 }

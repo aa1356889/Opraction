@@ -10,11 +10,15 @@
 namespace Jurisdiction.BLL
 {
     using System;
-    using System.Collections.Generic;using Jurisdiction.Entity;  using Jurisdiction.IBLL;  using Jurisdiction.IDAL;
-    
-    public  class MenuBLL:BaseBLL<Menu>,MenuIBLL
+    using System.Collections.Generic;using Jurisdiction.EntityView;  using Jurisdiction.IBLL;  using Jurisdiction.IDAL;
+
+    public class MenuBLL : BaseBLL<Jurisdiction.Entity.Menu>, MenuIBLL
     {
         public MenuBLL(MenuIDAL dal):base(dal){
+    
+    
+    
+    
     
     
     

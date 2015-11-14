@@ -23,6 +23,7 @@ namespace Jurisdiction.Entity
         public string UpassWord { get; set; }
         public string Uname { get; set; }
         public string LoginName { get; set; }
+        public string HeadPortraitUrl { get; set; }
     
         public virtual ICollection<UserRole> UserRole { get; set; }
     }

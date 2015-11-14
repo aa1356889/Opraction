@@ -11,12 +11,14 @@ namespace Jurisdiction.IBLL
 {
     using System;
     using System.Collections.Generic;using Jurisdiction.Entity;
-    
-    public  interface OprationIBLL:IBaseBLL<Opration>
+    using Jurisdiction.EntityView;
+    using Jurisdiction.Extend;
+
+    public interface OprationIBLL : IBaseBLL<Jurisdiction.Entity.Opration>
     {
-    
-    
-    
+
+
+        List<OpractionsExtend> GetOpractionByUid(int uid);
     
     
     }

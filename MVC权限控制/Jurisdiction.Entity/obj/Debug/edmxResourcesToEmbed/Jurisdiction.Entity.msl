@@ -4,10 +4,9 @@
     <EntitySetMapping Name="Function">
       <EntityTypeMapping TypeName="jurisdictionModel.Function">
         <MappingFragment StoreEntitySet="Function">
+          <ScalarProperty Name="Icont" ColumnName="Icont" />
           <ScalarProperty Name="Fid" ColumnName="Fid" />
           <ScalarProperty Name="Fname" ColumnName="Fname" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
-          <ScalarProperty Name="Controller" ColumnName="Controller" />
           <ScalarProperty Name="Action" ColumnName="Action" />
           <ScalarProperty Name="Mid" ColumnName="Mid" />
         </MappingFragment>
@@ -16,10 +15,14 @@
     <EntitySetMapping Name="Menu">
       <EntityTypeMapping TypeName="jurisdictionModel.Menu">
         <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Contorll" ColumnName="Contorll" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="url" ColumnName="url" />
           <ScalarProperty Name="Mid" ColumnName="Mid" />
           <ScalarProperty Name="MName" ColumnName="MName" />
           <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-          <ScalarProperty Name="ulr" ColumnName="ulr" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -53,6 +56,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="jurisdictionModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="HeadPortraitUrl" ColumnName="HeadPortraitUrl" />
           <ScalarProperty Name="LoginName" ColumnName="LoginName" />
           <ScalarProperty Name="uid" ColumnName="uid" />
           <ScalarProperty Name="UpassWord" ColumnName="UpassWord" />

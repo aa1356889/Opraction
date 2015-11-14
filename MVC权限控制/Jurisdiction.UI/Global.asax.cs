@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Reflection;
 using Autofac.Integration.Mvc;
+using Jurisdiction.UI.App_Start;
 namespace Jurisdiction.UI
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -21,15 +22,16 @@ namespace Jurisdiction.UI
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            //创建一个ioc容器
-            var buid = new ContainerBuilder();
-            Assembly ass=Assembly.Load("Jurisdiction.DAL");
-            Assembly asbll = Assembly.Load("Jurisdiction.BLL");
-            //已接口的形式注入ioc容器
-            buid.RegisterAssemblyTypes(ass,asbll).AsImplementedInterfaces();
-            buid.RegisterControllers(Assembly.GetExecutingAssembly());  //注入所有Controller
-            var container = buid.Build();
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));//普通的MVC Contr
+            AutofacRegister.Register();
+            ////创建一个ioc容器
+            //var buid = new ContainerBuilder();
+            //Assembly ass = Assembly.Load("Jurisdiction.DAL");
+            //Assembly asbll = Assembly.Load("Jurisdiction.BLL");
+            ////已接口的形式注入ioc容器
+            //buid.RegisterAssemblyTypes(ass, asbll).AsImplementedInterfaces();
+            //buid.RegisterControllers(Assembly.GetExecutingAssembly());  //注入所有Controller
+            //var container = buid.Build();
+            //DependencyResolver.SetResolver(new AutofacDependencyResolver(container));//普通的MVC Contr
             
         }
     }

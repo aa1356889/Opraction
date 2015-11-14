@@ -19,7 +19,6 @@ namespace Jurisdiction.UI.Controllers
 
         public ActionResult Index()
         {
-          
 
             return View();
         }

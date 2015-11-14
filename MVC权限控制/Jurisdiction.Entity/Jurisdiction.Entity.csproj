@@ -69,6 +69,8 @@
     <Compile Include="Entity\Users.cs">
       <DependentUpon>Jurisdiction.tt</DependentUpon>
     </Compile>
+    <Compile Include="Extend\FunctionExtend.cs" />
+    <Compile Include="Extend\OpractionsExtend.cs" />
     <Compile Include="Function.cs">
       <DependentUpon>Jurisdiction.tt</DependentUpon>
     </Compile>

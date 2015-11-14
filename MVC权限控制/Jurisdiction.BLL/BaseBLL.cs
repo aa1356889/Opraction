@@ -9,7 +9,7 @@ namespace Jurisdiction.BLL
 {
    public class BaseBLL<T>:IBLL.IBaseBLL<T> where T:class
     {
-       IDAL.IBaseDAL<T> baseDal = null;
+      protected IDAL.IBaseDAL<T> baseDal = null;
        public BaseBLL(IDAL.IBaseDAL<T> basedal)
        {
            baseDal = basedal;
@@ -50,6 +50,12 @@ namespace Jurisdiction.BLL
         public bool Save()
         {
           return  baseDal.Save();
+        }
+
+
+        public IQueryable<T> Query(Expression<Func<T, bool>> where)
+        {
+            return baseDal.Query(where);
         }
     }
 }

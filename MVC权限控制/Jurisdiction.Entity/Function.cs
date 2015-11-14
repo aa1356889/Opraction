@@ -14,19 +14,12 @@ namespace Jurisdiction.Entity
     
     public partial class Function
     {
-        public Function()
-        {
-            this.Opration = new HashSet<Opration>();
-        }
-    
         public int Fid { get; set; }
         public string Fname { get; set; }
-        public string Area { get; set; }
-        public string Controller { get; set; }
         public string Action { get; set; }
         public int Mid { get; set; }
+        public string Icont { get; set; }
     
         public virtual Menu Menu { get; set; }
-        public virtual ICollection<Opration> Opration { get; set; }
     }
 }

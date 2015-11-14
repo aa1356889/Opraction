@@ -1,0 +1,14 @@
+G:\mvc权限控制\MVC权限控制\WebHelper\bin\Debug\WebHelper.dll
+G:\mvc权限控制\MVC权限控制\WebHelper\bin\Debug\WebHelper.pdb
+G:\mvc权限控制\MVC权限控制\WebHelper\obj\Debug\WebHelper.dll
+G:\mvc权限控制\MVC权限控制\WebHelper\obj\Debug\WebHelper.pdb
+G:\mvc权限控制\MVC权限控制\WebHelper\obj\Debug\WebHelper.csprojResolveAssemblyReference.cache
+G:\mvc权限控制\MVC权限控制\WebHelper\bin\Debug\Jurisdiction.Entity.dll
+G:\mvc权限控制\MVC权限控制\WebHelper\bin\Debug\EntityFramework.dll
+G:\mvc权限控制\MVC权限控制\WebHelper\bin\Debug\Jurisdiction.Entity.pdb
+G:\mvc权限控制\MVC权限控制\WebHelper\bin\Debug\EntityFramework.xml
+G:\mvc权限控制\MVC权限控制\WebHelper\bin\Debug\zh-Hans\EntityFramework.resources.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Debug\WebHelper.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Debug\WebHelper.pdb
+G:\bin\Debug\WebHelper.dll
+G:\bin\Debug\WebHelper.pdb

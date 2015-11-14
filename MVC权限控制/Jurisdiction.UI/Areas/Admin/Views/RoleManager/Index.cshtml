@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<ul class="breadcrumb">
+				<li>
+					<i class="icon-home"></i>
+					<a href="index.html">后台管理</a> 
+				</li>
+				<li><a href="@Url.Action("Index","RoleManager")">角色管理</a></li>
+			</ul>
+<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th><input type="checkbox" class="chek" /></th>
+                <th>编号</th>
+                <th>角色名</th>
+                <th>设置权限</th>
+                <th>操作</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+          
+        </tbody>
+    </table>
+@section jss{
+<script type="text/javascript">
+    $(function () {
+        //渲染表格
+        commObj.LoadTable("#example",
+            [
+                {"data":null},
+                { "data": "Rid" },
+                { "data": "RName" },
+                { "data": null },
+                { "data": null },
+            ],
+            [
+                {
+                    "targets": 0,
+                    "render": function (data, type, full, meta) {
+                        return "<input type=\"checkbox\" class='roid' value='" + data.Rid + "'>";
+                    }
+                },
+                 {
+                     "targets": 3,
+                     "render": function (data, type, full, meta) {
+                         return "<button class=\"btn btn-primary noty\" rid=\" + data.Rid + \" >权限设置</button>";
+                     }
+                 },
+                 {
+                     "targets": 4,
+                     "render": function (data, type, full, meta) {
+                         return "<a class=\"btn btn-info\" href=\"#\" class='eidt'><i class=\"halflings-icon white edit\"></i>  </a>   <a class=\"btn btn-danger\" href=\"#\" class><i class=\"halflings-icon white trash\"></i> </a>";
+                     }
+                 }
+            ],
+            "@Url.Action("GetRols")",
+            function (d) {
+                d.daw = 1;
+                d.star = 0;
+                d.length = 10;
+                return d;
+            }
+            );
+    })
+
+
+</script>
+    }

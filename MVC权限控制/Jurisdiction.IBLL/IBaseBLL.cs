@@ -53,5 +53,7 @@ namespace Jurisdiction.IBLL
         /// </summary>
         /// <returns></returns>
         bool Save();
-    }
+
+        IQueryable<T> Query(Expression<Func<T, bool>> where);
+     }
 }

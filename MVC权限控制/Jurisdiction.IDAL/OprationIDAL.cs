@@ -11,13 +11,20 @@ namespace Jurisdiction.IDAL
 {
     using System;
     using System.Collections.Generic;using Jurisdiction.Entity;
-    
-    public  interface OprationIDAL:IBaseDAL<Opration>
+    using Jurisdiction.EntityView;
+    using Jurisdiction.Extend;
+
+    public interface OprationIDAL : IBaseDAL<Jurisdiction.Entity.Opration>
     {
-    
-    
-    
-    
-    
+
+
+        List<OpractionsExtend> GetOpractionByUid(int uid);
+
+
+        /// <summary>
+        /// 获得所有的权限数据
+        /// </summary>
+        /// <returns></returns>
+        List<OpractionsExtend> GetAllOperaction();
     }
 }

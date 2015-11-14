@@ -11,10 +11,6 @@
       <End Role="Menu" EntitySet="Menu" />
       <End Role="Function" EntitySet="Function" />
     </AssociationSet>
-    <AssociationSet Name="FK_Opration_Function_Fid" Association="jurisdictionModel.FK_Opration_Function_Fid">
-      <End Role="Function" EntitySet="Function" />
-      <End Role="Opration" EntitySet="Opration" />
-    </AssociationSet>
     <AssociationSet Name="FK_Opration_Menu_Mid" Association="jurisdictionModel.FK_Opration_Menu_Mid">
       <End Role="Menu" EntitySet="Menu" />
       <End Role="Opration" EntitySet="Opration" />
@@ -38,12 +34,10 @@
     </Key>
     <Property Name="Fid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Fname" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="Area" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
-    <Property Name="Controller" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
     <Property Name="Action" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
     <Property Name="Mid" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Menu" Relationship="jurisdictionModel.FK_Fucntion_Menu_Fid" FromRole="Function" ToRole="Menu" />
-    <NavigationProperty Name="Opration" Relationship="jurisdictionModel.FK_Opration_Function_Fid" FromRole="Function" ToRole="Opration" />
+    <Property Type="String" Name="Icont" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -51,10 +45,14 @@
     </Key>
     <Property Name="Mid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="MName" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-    <Property Name="ParentId" Type="Int32" />
-    <Property Name="ulr" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ParentId" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Function" Relationship="jurisdictionModel.FK_Fucntion_Menu_Fid" FromRole="Menu" ToRole="Function" />
     <NavigationProperty Name="Opration" Relationship="jurisdictionModel.FK_Opration_Menu_Mid" FromRole="Menu" ToRole="Opration" />
+    <Property Type="String" Name="url" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Icon" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Area" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Contorll" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Opration">
     <Key>
@@ -63,8 +61,7 @@
     <Property Name="Oid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="Roid" Type="Int32" Nullable="false" />
     <Property Name="Mid" Type="Int32" Nullable="false" />
-    <Property Name="Fid" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Function" Relationship="jurisdictionModel.FK_Opration_Function_Fid" FromRole="Opration" ToRole="Function" />
+    <Property Name="Fid" Type="Int32" />
     <NavigationProperty Name="Menu" Relationship="jurisdictionModel.FK_Opration_Menu_Mid" FromRole="Opration" ToRole="Menu" />
     <NavigationProperty Name="Roles" Relationship="jurisdictionModel.FK_Opration_Role_Roid" FromRole="Opration" ToRole="Roles" />
   </EntityType>
@@ -92,10 +89,11 @@
       <PropertyRef Name="uid" />
     </Key>
     <Property Name="uid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="UpassWord" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+    <Property Name="UpassWord" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
     <Property Name="Uname" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="UserRole" Relationship="jurisdictionModel.FK_UserRole_Users_Uid" FromRole="Users" ToRole="UserRole" />
     <Property Type="String" Name="LoginName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="HeadPortraitUrl" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Fucntion_Menu_Fid">
     <End Role="Menu" Type="jurisdictionModel.Menu" Multiplicity="1" />
@@ -106,18 +104,6 @@
       </Principal>
       <Dependent Role="Function">
         <PropertyRef Name="Mid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Opration_Function_Fid">
-    <End Role="Function" Type="jurisdictionModel.Function" Multiplicity="1" />
-    <End Role="Opration" Type="jurisdictionModel.Opration" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Function">
-        <PropertyRef Name="Fid" />
-      </Principal>
-      <Dependent Role="Opration">
-        <PropertyRef Name="Fid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

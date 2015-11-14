@@ -7,17 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jurisdiction.Entity
+namespace Jurisdiction.EntityView
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;  using Jurisdiction.Entity;
     public partial class Opration
     {
+        public int Oid { get; set; }
+        public int Roid { get; set; }
+        public int Mid { get; set; }
+        public Nullable<int> Fid { get; set; }
     
-    
-    
-    
-    
+      
+      
     }
 }

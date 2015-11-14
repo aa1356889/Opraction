@@ -11,15 +11,24 @@ namespace Jurisdiction.BLL
 {
     using System;
     using System.Collections.Generic;using Jurisdiction.Entity;  using Jurisdiction.IBLL;  using Jurisdiction.IDAL;
-    
-    public  class OprationBLL:BaseBLL<Opration>,OprationIBLL
+    using Jurisdiction.EntityView;
+    using Jurisdiction.Extend;
+
+    public class OprationBLL : BaseBLL<Jurisdiction.Entity.Opration>, OprationIBLL
     {
+        OprationIDAL ida = null;
         public OprationBLL(OprationIDAL dal):base(dal){
-    
+            ida = dal;
     
     
     
     
     }
+
+
+        List<OpractionsExtend> OprationIBLL.GetOpractionByUid(int uid)
+        {
+            return ida.GetOpractionByUid(uid);
+        }
     }
 }

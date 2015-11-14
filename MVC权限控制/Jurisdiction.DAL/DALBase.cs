@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,12 +17,23 @@ namespace Jurisdiction.DAL
    public class DALBase<T>:IDAL.IBaseDAL<T>where T:class
     {
 
-       jurisdictionEntities je = null;
-        DbSet<T> ds = null;
+       protected jurisdictionEntities je = null;
+       protected  DbSet<T> ds = null;
         public DALBase(){
-            je = new jurisdictionEntities();//初始化一个上下文对象
+            //1.0 先从线程缓存CallContext中获取一个EF容器对象，如果没有则创建之
+            object efContext = CallContext.GetData("BaseDbContext");
+            if (efContext == null)
+            {
+                efContext = new jurisdictionEntities();
+
+                //将新创建的EF容器对象存储到线程缓存中
+                CallContext.SetData("BaseDbContext", efContext);
+            }
+
+            je= efContext as jurisdictionEntities;
              ds=je.Set<T>();
         }
+      
 
         public IQueryable<T> QueryByPaging<Tkey>(int pageIndex, int pageSize, System.Linq.Expressions.Expression<Func<T, bool>> where, Expression<Func<T, Tkey>> orderBy, ref int count, params string[] tables)
         {
@@ -29,10 +41,13 @@ namespace Jurisdiction.DAL
             foreach (string table in tables)
             {
                 dq = ds.Include(table);
+            
             }
-            return dq.Where(where).OrderBy(orderBy).Skip((pageIndex - 1) * pageSize).Take(pageIndex * pageSize);
+            count = ds.Where(where).Count();
+            return dq.Where(where).OrderBy(orderBy).Skip(pageIndex).Take(pageSize);
              
         }
+
 
         /// <summary>
         /// 发送一段sql脚本
@@ -48,27 +63,52 @@ namespace Jurisdiction.DAL
         {
             //先将对象添加到实体代理类
             DbEntityEntry de=je.Entry(Model);
+            de.State = System.Data.EntityState.Unchanged;
             foreach (var proName in PropertyNames)
             {
-                de.Property(proName);
+                de.Property(proName).IsModified = true;
             }
+            je.Configuration.ValidateOnSaveEnabled = false;//关闭实体跟踪检查
 
         }
 
+        /// <summary>
+        /// 根据指定条件删除信息
+        /// </summary>
+        /// <param name="Model"></param>
+        /// <param name="isEfContext"></param>
         public void Delete(T Model, bool isEfContext)
         {
-            throw new NotImplementedException();
+            if (Model == null)
+            {
+                throw new ArgumentNullException("model is null");
+            }
+            //如果不存在实体代理类
+            if (!isEfContext)
+            {
+                ds.Attach(Model);
+            }
+            ds.Remove(Model);
+             
         }
 
         public void Add(T model)
         {
-            throw new NotImplementedException();
+            ds.Add(model);
         }
 
 
         public bool Save()
         {
-            throw new NotImplementedException();
+           return je.SaveChanges()>0;
         }
+
+        public IQueryable<T> Query(Expression<Func<T, bool>> where)
+        {
+            return ds.Where(where);
+        }
+
+
+
     }
 }

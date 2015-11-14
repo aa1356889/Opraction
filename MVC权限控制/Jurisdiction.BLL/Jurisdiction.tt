@@ -416,7 +416,7 @@ public class CodeStringGenerator
                 "{2}"+"{3}{4}"+
 			    "{5}", 
                 inHeader ? Environment.NewLine : "",
-                includeCollections ? (Environment.NewLine + "using System.Collections.Generic") : "",";using Jurisdiction.Entity;","  using Jurisdiction.IBLL;","  using Jurisdiction.IDAL;",
+                includeCollections ? (Environment.NewLine + "using System.Collections.Generic") : "",";using Jurisdiction.EntityView;","  using Jurisdiction.IBLL;","  using Jurisdiction.IDAL;",
                 inHeader ? "" : Environment.NewLine)
             : "";
     }

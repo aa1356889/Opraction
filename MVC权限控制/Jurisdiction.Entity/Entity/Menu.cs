@@ -7,20 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jurisdiction.Entity
+namespace Jurisdiction.EntityView
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;  using Jurisdiction.Entity;
     public partial class Menu
     {
+        public Menu()
+        {
+       
+       
+        }
     
+        public int Mid { get; set; }
+        public string MName { get; set; }
+        public int ParentId { get; set; }
+        public string url { get; set; }
+        public string Icon { get; set; }
+        public System.DateTime CreateTime { get; set; }
+        public string Area { get; set; }
+        public string Contorll { get; set; }
     
-    
-    
-    
-    
-    
-    
+      
+      
     }
 }

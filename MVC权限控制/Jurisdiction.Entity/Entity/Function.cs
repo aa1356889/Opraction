@@ -7,22 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jurisdiction.Entity
+namespace Jurisdiction.EntityView
 {
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;  using Jurisdiction.Entity;
     public partial class Function
     {
+        public int Fid { get; set; }
+        public string Fname { get; set; }
+        public string Action { get; set; }
+        public int Mid { get; set; }
+        public string Icont { get; set; }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      
     }
 }

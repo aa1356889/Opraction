@@ -410,7 +410,7 @@ public class CodeStringGenerator
                 "{0}using System;{1}" +
                 "{2}"+"{3}", 
                 inHeader ? Environment.NewLine : "",
-                includeCollections ? (Environment.NewLine + "using System.Collections.Generic") : "",";using Jurisdiction.Entity;",
+                includeCollections ? (Environment.NewLine + "using System.Collections.Generic") : "",";using Jurisdiction.EntityView;",
                 inHeader ? "" : Environment.NewLine)
             : "";
     }

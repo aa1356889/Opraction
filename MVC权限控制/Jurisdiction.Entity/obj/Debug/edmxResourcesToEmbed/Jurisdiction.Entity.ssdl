@@ -11,16 +11,8 @@
       <End Role="Menu" EntitySet="Menu" />
       <End Role="Function" EntitySet="Function" />
     </AssociationSet>
-    <AssociationSet Name="FK_Opration_Function_Fid" Association="jurisdictionModel.Store.FK_Opration_Function_Fid">
-      <End Role="Function" EntitySet="Function" />
-      <End Role="Opration" EntitySet="Opration" />
-    </AssociationSet>
     <AssociationSet Name="FK_Opration_Menu_Mid" Association="jurisdictionModel.Store.FK_Opration_Menu_Mid">
       <End Role="Menu" EntitySet="Menu" />
-      <End Role="Opration" EntitySet="Opration" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Opration_Role_Roid" Association="jurisdictionModel.Store.FK_Opration_Role_Roid">
-      <End Role="Roles" EntitySet="Roles" />
       <End Role="Opration" EntitySet="Opration" />
     </AssociationSet>
     <AssociationSet Name="FK_UserRole_Role_Roid" Association="jurisdictionModel.Store.FK_UserRole_Role_Roid">
@@ -38,10 +30,9 @@
     </Key>
     <Property Name="Fid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Fname" Type="varchar" Nullable="false" MaxLength="20" />
-    <Property Name="Area" Type="varchar" Nullable="false" MaxLength="30" />
-    <Property Name="Controller" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="Action" Type="varchar" Nullable="false" MaxLength="30" />
     <Property Name="Mid" Type="int" Nullable="false" />
+    <Property Name="Icont" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Menu">
     <Key>
@@ -49,8 +40,12 @@
     </Key>
     <Property Name="Mid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="MName" Type="varchar" MaxLength="20" />
-    <Property Name="ParentId" Type="int" />
-    <Property Name="ulr" Type="varchar" MaxLength="50" />
+    <Property Name="ParentId" Type="int" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="50" />
+    <Property Name="Icon" Type="varchar" MaxLength="50" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+    <Property Name="Area" Type="nchar" MaxLength="10" />
+    <Property Name="Contorll" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="Opration">
     <Key>
@@ -59,7 +54,7 @@
     <Property Name="Oid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Roid" Type="int" Nullable="false" />
     <Property Name="Mid" Type="int" Nullable="false" />
-    <Property Name="Fid" Type="int" Nullable="false" />
+    <Property Name="Fid" Type="int" />
   </EntityType>
   <EntityType Name="Roles">
     <Key>
@@ -82,8 +77,9 @@
     </Key>
     <Property Name="uid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="LoginName" Type="varchar" MaxLength="20" />
-    <Property Name="UpassWord" Type="nchar" MaxLength="10" />
+    <Property Name="UpassWord" Type="varchar" MaxLength="50" />
     <Property Name="Uname" Type="varchar" MaxLength="20" />
+    <Property Name="HeadPortraitUrl" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Fucntion_Menu_Fid">
     <End Role="Menu" Type="jurisdictionModel.Store.Menu" Multiplicity="1" />
@@ -97,18 +93,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Opration_Function_Fid">
-    <End Role="Function" Type="jurisdictionModel.Store.Function" Multiplicity="1" />
-    <End Role="Opration" Type="jurisdictionModel.Store.Opration" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Function">
-        <PropertyRef Name="Fid" />
-      </Principal>
-      <Dependent Role="Opration">
-        <PropertyRef Name="Fid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Opration_Menu_Mid">
     <End Role="Menu" Type="jurisdictionModel.Store.Menu" Multiplicity="1" />
     <End Role="Opration" Type="jurisdictionModel.Store.Opration" Multiplicity="*" />
@@ -118,18 +102,6 @@
       </Principal>
       <Dependent Role="Opration">
         <PropertyRef Name="Mid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Opration_Role_Roid">
-    <End Role="Roles" Type="jurisdictionModel.Store.Roles" Multiplicity="1" />
-    <End Role="Opration" Type="jurisdictionModel.Store.Opration" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Roles">
-        <PropertyRef Name="Rid" />
-      </Principal>
-      <Dependent Role="Opration">
-        <PropertyRef Name="Roid" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
