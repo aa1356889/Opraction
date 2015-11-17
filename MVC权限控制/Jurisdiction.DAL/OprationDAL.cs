@@ -25,10 +25,10 @@ namespace Jurisdiction.DAL
         {
             var list = (from o in je.Opration
                         join m in je.Menu on o.Mid equals m.Mid
-                        join f in je.Function on m.Mid equals f.Mid
+                        join f in je.Function on o.Fid equals f.Fid
                         join ur in je.UserRole on o.Roid equals ur.Roid
                         where ur.Uid == uid
-                        select new OpractionsExtend() { Mares = m.Area, MContorll = m.Contorll, Action = f.Action, ActionName = f.Fname, MIco = m.Icon, Mid = m.Mid, MName = m.MName, Murl = m.url, PrentId = m.ParentId, Roid = o.Roid }).Distinct().ToList<OpractionsExtend>();
+                        select new OpractionsExtend() { Mares = m.Area, MContorll = m.Contorll, Action = f.Action, ActionName = f.Fname, MIco = m.Icon, Mid = m.Mid, MName = m.MName, Murl = m.url, PrentId = m.ParentId, Roid = o.Roid }).ToList<OpractionsExtend>();
             return list;
         }
 
@@ -42,8 +42,60 @@ namespace Jurisdiction.DAL
             var list = (from o in je.Opration
                         join m in je.Menu on o.Mid equals m.Mid
                         join f in je.Function on m.Mid equals f.Mid
-                        select new OpractionsExtend() { Mares = m.Area, MContorll = m.Contorll, Action = f.Action, ActionName = f.Fname, MIco = m.Icon, Mid = m.Mid, MName = m.MName, Murl = m.url, PrentId = m.ParentId, Roid = o.Roid }).Distinct().ToList<OpractionsExtend>();
+                        select new OpractionsExtend() { Mares = m.Area, MContorll = m.Contorll, Action = f.Action, ActionName = f.Fname, MIco = m.Icon, Mid = m.Mid, MName = m.MName, Murl = m.url, PrentId = m.ParentId, Roid = o.Roid}).Distinct().ToList<OpractionsExtend>();
             return list;
+        }
+
+
+        /// <summary>
+        /// 根据角色id获得权限数据
+        /// </summary>
+        /// <param name="rid"></param>
+        /// <returns></returns>
+        public List<OpractionsExtend> GetOpractionByRoid(int rid)
+        {
+            var list = (from o in je.Opration
+                        join m in je.Menu on o.Mid equals m.Mid
+                        join f in je.Function on o.Fid equals f.Fid
+                        where o.Roid==rid
+                        select new OpractionsExtend() { Mares = m.Area, MContorll = m.Contorll, Action = f.Action, ActionName = f.Fname, MIco = m.Icon, Mid = m.Mid, MName = m.MName, Murl = m.url, PrentId = m.ParentId, Roid = o.Roid, Fid = f.Fid }).Distinct().ToList<OpractionsExtend>();
+            return list;
+        }
+
+
+        public bool SetOpractionByRid(int rid, List<Entity.Opration> opractions)
+        {
+            using (System.Transactions.TransactionScope scop = new System.Transactions.TransactionScope())
+            {
+                try
+                {
+                    var list=ds.Where(c => c.Roid == rid).ToList<Entity.Opration>();
+                    //删除原有权限
+                    foreach (var opion in list)
+                    {
+                        this.Delete(opion, true);
+                    }
+                    Save();
+                    foreach (var item in opractions)
+                    {
+                        Add(item);
+                    }
+
+                    Save();
+                    scop.Complete();
+                    return true;
+
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+                finally
+                {
+                    scop.Dispose();
+                }
+
+            }
         }
     }
 }

@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attrbute\InitValidateUrlAttrbute.cs" />
     <Compile Include="CaheManager.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="JsonHelper.cs" />

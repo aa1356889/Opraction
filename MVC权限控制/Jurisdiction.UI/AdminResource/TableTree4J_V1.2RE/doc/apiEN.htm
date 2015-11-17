@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>TableTree4J API</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script type="text/javascript" src="../TableTree4J.js"></script>
+	<link rel="StyleSheet" href="../css/tabletree4j.css" type="text/css" />
+
+</head>
+<style>
+.body {
+font-size:14px;
+}
+
+.items{
+color:#669999;
+font-size:14px;		
+}
+.title{
+font-size:16px;		
+font-weight:bold;
+color:#4E4E27;
+border:#FF0000 solid;
+border-width:0px 0px 1px;
+}
+.copyrightdiv{
+font-size:12px;	
+font-family:"Arial";
+color:#C0C0C0;	
+}
+
+</style>
+<body class="body">
+<div style="font-size:25px;color:#993333;font-weight:bold">
+			TableTree4J 1.1RE API
+	<hr/>
+</div>
+
+<div>	
+<span class="title">1.option items. Object: TableTree4J</span><br/><br/>
+		<span class="items">option</span><br/>
+		config.treeMode: &nbsp;&nbsp;&nbsp;The mode of the tree,value: "GRID"|"MENU"<br/>
+		config.treeStyle: &nbsp;&nbsp;&nbsp;The style of the tree,value: "GRIDTREESTYLE"|"MENUTREESTYLE"<br/>
+		config.dafultTarget: &nbsp;&nbsp;&nbsp;Dafult link target,value: null|String <br/>
+		config.rootNodeBtn: &nbsp;&nbsp;&nbsp;Boolean show the root node button,value: true|false<br/>
+		config.folderAutoUrl: &nbsp;&nbsp;&nbsp;Boolean auto to add url to the folder,value: true|false<br/>
+		config.nodeHrefSelectBg: &nbsp;&nbsp;&nbsp;Boolean highlight the selected leaf node,value: true|false<br/>
+		config.hrefOnfouceLine: &nbsp;&nbsp;&nbsp;Boolean the fouce link show dashed,value: true|false<br/>
+		config.hrefIconOnfouceLine: &nbsp;&nbsp;&nbsp;Boolean the fouce ICON link show dashed,value: true|false<br/>
+		config.showTipTitle: &nbsp;&nbsp;&nbsp;Boolean the link show tip,value: true|false<br/>
+		config.showStatusText: &nbsp;&nbsp;&nbsp;Boolean the link show status tip,value: true|false<br/>
+		config.inOrder: &nbsp;&nbsp;&nbsp;Boolean order the node,value: true|false<br/>
+		config.useCookies: &nbsp;&nbsp;&nbsp;Boolean use cookies to save the node status(open or close),value: true|false<br/>
+		config.cookieTime: &nbsp;&nbsp;&nbsp;The live time of Cookie,value: 30*24*60*60*1000<br/>
+		config.useIcon: &nbsp;&nbsp;&nbsp;Boolean the node use icon,value: true|false<br/>
+		config.useLine: &nbsp;&nbsp;&nbsp;Boolean the tree use node dashed,value: true|false<br/>
+		config.booleanInitOpenAll: &nbsp;&nbsp;&nbsp;Boolean open all node when the tree init,value: true|false<br/>
+		config.booleanHighLightRow: &nbsp;&nbsp;&nbsp;HighLight the select row,value: true|false<br/>
+		config.highLightRowClassName: &nbsp;&nbsp;&nbsp;The style of the highlight row,value: "GridHighLightRow"<br/>		
+		setImgRootPath(path): &nbsp;&nbsp;&nbsp;Change the image root path,Param: path of the dir<br/><br/>
+	<span class="items">The dafult option of GridTree mode and MenuTree mode :</span>	
+	<table border="1" width="100%" cellspacing="1" style="border-collapse: collapse" id="table1">
+		<tr>
+			<td bgcolor="#0000FF" width="50%" ><b><font color="#FFFFFF">option</font></b></td>
+			<td bgcolor="#0000FF" width="25%"><b><font color="#FFFFFF">GridTree mode</font></b></td>
+			<td bgcolor="#0000FF" width="25%"><b><font color="#FFFFFF">MenuTree mode</font></b></td>
+		</tr>
+		<tr>
+			<td>config.treeMode</td>
+			<td align="center">&quot;GRID&quot;</td>
+			<td align="center">&quot;MENU&quot;</td>
+		</tr>
+		<tr>
+			<td>config.treeStyle</td>
+			<td align="center">&quot;GRIDTREESTYLE&quot;</td>
+			<td align="center">&quot;MENUTREESTYLE&quot;</td>
+		</tr>
+		<tr>
+			<td>config.dafultTarget</td>
+			<td align="center">null</td>
+			<td align="center">null</td>
+		</tr>
+		<tr>
+			<td>config.rootNodeBtn</td>
+			<td align="center">true</td>
+			<td align="center">false</td>
+		</tr>
+		<tr>
+			<td>config.folderAutoUrl</td>
+			<td align="center">false</td>
+			<td align="center">true</td>
+		</tr>
+		<tr>
+			<td>config.nodeHrefSelectBg</td>
+			<td align="center">false</td>
+			<td align="center">true</td>
+		</tr>
+		<tr>
+			<td>config.hrefOnfouceLine</td>
+			<td align="center">false</td>
+			<td align="center">false</td>
+		</tr>
+		<tr>
+			<td>config.hrefIconOnfouceLine</td>
+			<td align="center">false</td>
+			<td align="center">false</td>
+		</tr>
+		<tr>
+			<td>config.showTipTitle</td>
+			<td align="center">true</td>
+			<td align="center">true</td>
+		</tr>
+		<tr>
+			<td>config.showStatusText</td>
+			<td align="center">true</td>
+			<td align="center">true</td>
+		</tr>
+		<tr>
+			<td>config.inOrder</td>
+			<td align="center">true</td>
+			<td align="center">true</td>
+		</tr>
+		<tr>
+			<td>config.useCookies</td>
+			<td align="center">false</td>
+			<td align="center">false</td>
+		</tr>
+		<tr>
+			<td>config.useIcon</td>
+			<td align="center">false</td>
+			<td align="center">true</td>
+		</tr>
+		<tr>
+			<td>config.useLine</td>
+			<td align="center">true</td>
+			<td align="center">true</td>
+		</tr>
+		<tr>
+			<td>config.booleanInitOpenAll</td>
+			<td align="center">false</td>
+			<td align="center">false</td>
+		</tr>
+		<tr>
+			<td>config.booleanHighLightRow</td>
+			<td align="center">true</td>
+			<td align="center">false</td>
+		</tr>		
+	</table>
+
+	
+	
+<br/><br/>	
+<span class="title">2.The functions and vars of the TableTree4J Object</span><br/><br/>	
+	<span class="items">Explain the useful functions and vars :</span><br/>
+	* new TableTree4J(objectName,rootPath): &nbsp;&nbsp;&nbsp;The formation function of TableTree4J class. Param(instantiation name,TableTree4J root path):<br/>
+	* tableDesc: &nbsp;&nbsp;&nbsp;A var,user to describe the table label<br/>
+	* setHeader(arrayHeader,id,headerWidthList,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen)<br/>
+	The function of the GridTree mode to set the header of the table. Param(values Array,root id,width value Array,boolean open,css className,link tip,link status tip,close icon,open icon)<br/>
+	* gridHeaderColStyleArray: &nbsp;&nbsp;&nbsp;Grid header col class name array<br/>
+	* gridDataCloStyleArray: &nbsp;&nbsp;&nbsp;Grid data col class name array<br/>	
+	* addGirdNode(dataList,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen):<br/>
+	The function of the GridTree mode to add node. Param(values Array,node id,parent node id,boolean open,oder,link,link target,link tip,ink status tip,css className,close icon,open icon)<br/>
+	* toMenuMode(): &nbsp;&nbsp;&nbsp;The function of the MenuTree mode to init the tree<br/>
+	* setMenuRoot(rootName,id,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen):<br/>
+	The function of the MenuTree mode to set the root node. Param(root name,root node id,boolean open,css className,link tip,ink status tip,close icon,open icon)<br/>
+	* addMenuNode(menuName,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen):<br/>
+	The function of the MenuTree mode to add node. Param(node name,node id,parent node id,boolean open,order,link,link target,link tip,ink status tip,css className,close icon,open icon)<br/>
+	* printTableTreeToElement(eleId): &nbsp;&nbsp;&nbsp;The function will print the tree to a html element,it can be use after the html has inited. Param(an id of html element)<br/>
+	* printTableTree(): &nbsp;&nbsp;&nbsp;The function will print the tree,if use thie function to print the tree ,it must be use when the html init.<br/>
+	* findTreeNodeByMapId(nodeId): &nbsp;&nbsp;&nbsp;Find a node by nodeId,this function will be return a node object.<br/> 
+	* removeTreeCookies(): &nbsp;&nbsp;&nbsp;Remove all the cookies of the tree.
+	* openAllNodes(): &nbsp;&nbsp;&nbsp;Open all nodes.<br/> 
+	* closeAllNodes(): &nbsp;&nbsp;&nbsp;Close all nodes.<br/> 			
+	<br/>
+	
+	<span class="items">The flow of build a GridTree:</span><br/>
+	//init a tree object<br/>
+	var gridTree=new TableTree4J("gridTree","../");<br/>
+	//desc the table<br/>
+	gridTree.tableDesc="&lt;table border=\&quot;1\&quot; class=\&quot;GridView\&quot; width=\&quot;100%\&quot; id=\&quot;table1\&quot; 
+cellspacing=\&quot;0\&quot; cellpadding=\&quot;0\&quot; style=\&quot;border-collapse: collapse\&quot; 
+bordercolordark=\&quot;#C0C0C0\&quot; bordercolorlight=\&quot;#C0C0C0\&quot; &gt;";	<br/>
+	//if you want to change the dafule option,you can write in here<br/>
+	//gridTree.config.XXX=XXX;.....<br/>
+	//set the table header<br/>
+	var headerDataList=new Array("ModuleName","CreateTime","Status","Option");<br/>
+	//set the TD width value array<br/>
+	var widthList=new Array("20%","40%","10%","30%");<br/>	
+	//table header<br/>
+	gridTree.setHeader(headerDataList,id,widthList,true,"GridHead","This is a tipTitle of head href!","header status text","","");	<br/>	
+	//set header col style<br/>
+	gridTree.gridHeaderColStyleArray=new Array("","","","centerClo");<br/>
+	//set data col style<br/>
+	gridTree.gridDataCloStyleArray=new Array("","","","centerClo");<br/>			
+	//add nodes,you can use defferent language to circling add nodes here,just like jsp,asp,php and also.<br/>
+		//the value array of node<br/>
+	var dataList=new Array("SystemManager","2007-12-10","inUse",".......");<br/>
+		//add node<br/>
+	gridTree.addGirdNode(dataList,1,-1,null,3,"#",null,"hello!","Status Text",null,null,null);<br/>
+	......<br/>
+	......<br/>
+	//pring the tree to the div<br/>
+	gridTree.printTableTreeToElement("DivId");<br/>
+	//you can also use 	"gridTree.printTableTree()" to pring a tree<br/><br/>
+	
+	<span class="items">The flow of build a MenuTree</span><br/>
+	//init a tree object<br/>
+	var menuTree=new TableTree4J("menuTree","../");<br/>
+	//the function use to init the MenuTree. 
+	menuTree.toMenuMode();
+	//if you want to change the dafule option,you can write in here,but you must write after the function called "toMenuMode()".<br/>
+	//menuTree.config.XXX=XXX;.....<br/>
+	//set the root node	<br/>
+	menuTree.setMenuRoot("ModuleName",id,true,"MenuRoot","menu root href tip!","header status text","","");<br/>
+	//add nodes,you can use defferent language to circling add nodes here,just like jsp,asp,php and also.<br/>	
+	menuTree.addMenuNode("SystemManager",1,-1,null,5,"#","_self","tip","",null,null,null);<br/>
+	......<br/>
+	......<br/>	
+	//pring the tree<br/>
+	menuTree.printTableTreeToElement("DivId");<br/>
+	//menuTree.printTableTree()<br/><br/>
+	
+		
+<span class="title">3.The var of the node Object</span><br/><br/>	
+	<span class="items">vars:</span><br/>	
+	dataList - value array<br/>
+	id - node id<br/>
+	pid - parent id<br/>
+	name - node name<br/>
+	order - node order<br/>
+	icon - node close icon<br/>
+	iconOpen - node open icon<br/>
+	classStyle - css className<br/>
+	url - link url<br/>
+	target - link target<br/>
+	hrefStatusText - the status tip of the node<br/>
+	booleanOpen - boolean open<br/>
+	hrefTip - link tip<br/>
+	childNodes - the child nodes of the node<br/>
+	pNode - the parent node<br/>
+	level - the level of the node<br/>
+	visible - boolean the node visible<br/>
+	cloBtnImg - the close button image of the node<br/>
+	opnBtnImg - the open button image of the node<br/>
+	booleanRoot - boolean is root<br/>
+    booleanLeaf - boolean is leaf<br/>
+    booleanLastNode - boolean is last child node in the parent node<br/>
+    htmlcode - the html code of the node<br/><br/>	
+	
+
+<span class="title">4.The CSS </span><br/><br/>	
+	<span class="items">dafult CSS file:</span><br/>
+	In the dafule css,the name of the items who called "GRIDTREESTYLE" and "MENUTREESTYLE" and their child items must not be change,because their name 
+	was appointed in the js,you only can change their value.<br/>
+	If you want to use another css file,the file which you appointed must contains some items what I say in the upwards sentence.<br/>
+	GRIDTREESTYLE : The css class appointed the GridTree style except the tree header style.<br/>
+	MENUTREESTYLE : The css class appointed the MenuTree style except the tree header style.<br/>
+	
+	*If you want to use another css file , I suggest you use the class name which in the dafult css file ,it may be better.
+	<br/><br/><br/>
+	
+</div>
+
+
+
+
+		
+<div class="copyrightdiv">				
+		<p/>
+		<p/>
+		<div align="center">E-mail:lannerk@qq.com</div>
+		<div align="center">Copyright (c) 2007-2008 xcode-studio</div>		
+		<div align="center">TableTree4J version:1.1RE updata:2008.5.17</div>		
+</div>
+</body>
+</html>		

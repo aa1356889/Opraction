@@ -55,5 +55,11 @@ namespace Jurisdiction.IBLL
         bool Save();
 
         IQueryable<T> Query(Expression<Func<T, bool>> where);
+
+        /// <summary>
+        /// 处理批量新增
+        /// </summary>
+        /// <returns></returns>
+        bool BatchAdd(List<T> list);
      }
 }

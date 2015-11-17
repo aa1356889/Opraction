@@ -11,8 +11,8 @@ namespace Jurisdiction.UI
             filters.Add(new HandleErrorAttribute());
             //注册全局的登陆验证过滤器
             filters.Add(new AdminIdentityVerifyAttribute());
-            //注册全局的权限验证过滤器
-            //filters.Add(new OperactionAttribute());
+            ////注册全局的权限验证过滤器
+            filters.Add(new OperactionAttribute());
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Jurisdiction.DAL
 {
@@ -44,6 +45,7 @@ namespace Jurisdiction.DAL
             
             }
             count = ds.Where(where).Count();
+           
             return dq.Where(where).OrderBy(orderBy).Skip(pageIndex).Take(pageSize);
              
         }
@@ -110,5 +112,28 @@ namespace Jurisdiction.DAL
 
 
 
+
+
+        public bool BatchAdd(List<T> list)
+        {
+            using (TransactionScope scope = new TransactionScope())
+            {
+                foreach (var item in list)
+                {
+                    Add(item);
+                }
+                try{
+                    Save();
+               
+                    scope.Complete();
+                    return true;
+               
+                }catch(Exception e){
+                 
+                    scope.Dispose();
+                    return false;
+                }
+            }
+        }
     }
 }

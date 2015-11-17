@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>TableTree4J V1.1RE Example Common</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<script type="text/javascript" src="../TableTree4J.js"></script>
+	<link rel="StyleSheet" href="../css/tabletree4j.css" type="text/css" />
+	
+
+<style>
+	
+.body{
+font-size:12px;
+font-family:"Arial";	
+}
+.btnDiv a{
+color:#0000FF;	
+text-decoration: none;	
+}
+.btnDiv a:hover{
+color:#CC3300;	
+text-decoration: underline;	
+}
+.items{
+color:#669999;
+font-size:14px;		
+}
+.title{
+font-size:16px;		
+font-weight:bold;
+}
+.copyrightdiv{
+font-size:12px;	
+font-family:"Arial";
+color:#C0C0C0;	
+}
+.centerClo {
+	text-align:center;
+}
+</style>
+
+
+<script language="JavaScript">
+//GridTree
+	var gridTree;	
+	function GridTree(){
+	//init
+		gridTree=new TableTree4J("gridTree","../");	
+		gridTree.tableDesc="<table  border=\"1\" class=\"GridView\" width=\"100%\" id=\"table1\" cellspacing=\"0\" cellpadding=\"0\" style=\"border-collapse: collapse\"  bordercolordark=\"#C0C0C0\" bordercolorlight=\"#C0C0C0\" >";	
+		var headerDataList=new Array("ModuleName","Create Time","Status","Operation");
+		var widthList=new Array("20%","40%","10%","30%");
+		//param: arrayHeader,id,headerWidthList,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen
+		gridTree.setHeader(headerDataList,-1,null,true,"GridHead","This is a tipTitle of head href!","header status text","","");				
+	
+		//set col style
+		gridTree.gridHeaderColStyleArray=new Array("","","","centerClo");
+		gridTree.gridDataCloStyleArray=new Array("","","","centerClo");		
+	//add data		
+		var dataList=new Array("SystemManager","2007-12-10","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		//params:dataList,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen
+		gridTree.addGirdNode(dataList,1,-1,null,5,"#",null,"hello!","status text",null,null,null);
+
+		dataList=new Array("PopedomManager","2007-11-8","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,2,-1,null,2);
+		
+		dataList=new Array("MessageManager","2008-1-22","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,3,-1,null,3);
+		
+		dataList=new Array("FilesManager","2007-3-18","Out of use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,4,-1,null,4);
+		
+		dataList=new Array("RecordsManager","2007-4-20","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,5,-1,null,1);
+					
+		//-------------
+		dataList=new Array("Popedom","2007-11-8","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,6,3,null,2);
+		
+		dataList=new Array("Message","2008-1-22","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,7,3,null,1);
+		
+		dataList=new Array("Files","2007-3-18","Out of use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,8,5,null,3);
+		
+		dataList=new Array("Records","2007-4-20","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,9,2,null,4);
+
+		//-------------
+		dataList=new Array("PopedomShows","2007-11-8","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,10,6,null,"");
+		
+		dataList=new Array("MessageShows","2008-1-22","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,11,10,null,2);
+		
+		dataList=new Array("FilesShows","2007-3-18","Out of use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,12,9,null,3);
+		
+		dataList=new Array("RecordsShows","2007-4-20","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,13,7,null,1);
+	
+	//print	
+		gridTree.printTableTreeToElement("gridTreeDiv");		
+	
+	}
+	
+	
+//menuTree
+	var menuTree;	
+	function MenuTree(){
+	//init
+		menuTree=new TableTree4J("menuTree","../");
+		menuTree.toMenuMode();
+		menuTree.setImgRootPath("../thame/img_style_blueAll/");
+		//param: rootName,id,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen		
+		menuTree.setMenuRoot("ModuleName",-1,true,"MenuRoot","menu root href tip!","header status text",null,null);
+	//add data
+		//param£ºmenuName,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen
+		menuTree.addMenuNode("SystemManager",1,-1,null,5,"#","_self","href tip","status text",null,null,null);
+
+		menuTree.addMenuNode("PopedomManager",2,-1,null,2);
+
+		menuTree.addMenuNode("MessageManager",3,-1,null,3);
+
+		menuTree.addMenuNode("FilesManager",4,-1,null,4,"#","",null,null,null,"../img/trash.gif",null);
+
+		menuTree.addMenuNode("RecordsManager",5,-1,null,1,"","","tip tip!");					
+		//-------------
+		menuTree.addMenuNode("Popedom",6,3,null,2);
+
+		menuTree.addMenuNode("Message",7,3,null,1);
+
+		menuTree.addMenuNode("Files",8,5,null,3);
+
+		menuTree.addMenuNode("Records",9,2,null,4);
+		//-------------
+		menuTree.addMenuNode("PopedomShows",10,6,null,"");
+
+		menuTree.addMenuNode("MessageShows",11,10,null,2);
+
+		menuTree.addMenuNode("FilesShows",12,9,null,3);
+	
+		menuTree.addMenuNode("RecordsShows",13,7,null,1);		
+	//print	
+		menuTree.printTableTreeToElement("menuTreeDiv");				
+		
+	}	
+</script>	
+
+
+</head>
+	<body class="body">
+		<div style="font-size:25px;color:#993333;font-weight:bold">
+			TableTree4J Examples
+		</div>		
+		<div id="tips" class="title">
+			This example show you how to use TableTree4J create a gridTree or a menuTree.
+			<hr/>
+		</div>
+		
+		<div align="right">
+		<a href="exampleListEN.htm" style="color:#0000FF;font-size:12px">back</a>	
+		</div>
+		
+		<span class="items">GridTree</span>	
+		<div id="gridTreeBtn" class="btnDiv" >
+			<input type="button" value="Click me show a GridTree" onclick="GridTree()" />&nbsp;&nbsp;
+			<a  href="javascript:gridTree.openAllNodes()">Open All</a> | 
+			<a  href="javascript:gridTree.closeAllNodes()">Close All</a>
+		</div>
+		<div id="gridTreeDiv">
+			
+		</div>
+		<p/>
+		<p/>
+		<span class="items">MenuTree</span>
+		<div id="gridTreeBtn" class="btnDiv" >
+			<input type="button" value="Click me show a MenuTree" onclick="MenuTree()" />&nbsp;&nbsp;
+			<a  href="javascript:menuTree.openAllNodes()">Open All</a> | 
+			<a  href="javascript:menuTree.closeAllNodes()">Close All</a>
+		</div>
+		<div id="menuTreeDiv">
+			
+		</div>
+						
+
+	
+	
+		
+<div class="copyrightdiv">				
+		<p/>
+		<p/>
+		<div align="center">E-mail:lannerk@qq.com</div>
+		<div align="center">Copyright (c) 2007-2008 xcode-studio</div>		
+		<div align="center">TableTree4J version:1.1RE updata:2008.5.17</div>		
+</div>
+
+
+			
+	</body>
+</html>

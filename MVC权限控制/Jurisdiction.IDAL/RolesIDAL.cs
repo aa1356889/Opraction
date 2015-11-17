@@ -11,10 +11,10 @@ namespace Jurisdiction.IDAL
 {
     using System;
     using System.Collections.Generic;using Jurisdiction.Entity;
+    using Jurisdiction.Extend;
     
     public  interface RolesIDAL:IBaseDAL<Roles>
     {
-    
     
     
     

@@ -57,5 +57,11 @@ namespace Jurisdiction.BLL
         {
             return baseDal.Query(where);
         }
+
+
+        public bool BatchAdd(List<T> list)
+        {
+            return baseDal.BatchAdd(list);
+        }
     }
 }

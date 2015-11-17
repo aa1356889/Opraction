@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>TableTree4J Print the tree</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<script type="text/javascript" src="../TableTree4J.js"></script>
+	<link rel="StyleSheet" href="../css/tabletree4j.css" type="text/css" />
+
+</head>
+<style>
+	
+.body {
+font-size:12px;
+font-family:"Arial";
+}
+
+.items{
+color:#669999;
+font-size:14px;		
+}
+.title{
+font-size:16px;		
+font-weight:bold;
+}
+.copyrightdiv{
+font-size:12px;	
+font-family:"Arial";
+color:#C0C0C0;	
+}
+
+</style>
+<body class="body">
+		<div style="font-size:25px;color:#993333;font-weight:bold">
+			TableTree4J Examples
+		</div>
+		<div id="tips" class="title">
+			How to out print the tree
+			<hr/>
+		</div>
+		
+		<div align="right">
+		<a href="exampleListEN.htm" style="color:#0000FF;font-size:12px">Back</a>	
+		</div>		
+			
+<div>	
+<span class="items">Out pring the tree</span><br/>
+There two function to out print the tree : printTableTree() &  printTableTreeToElement(DivId):<br/>
+(1)printTableTree(): If you use this function to print a tree ,you must use it when the html init not complete.<br/>
+(2)printTableTreeToElement(DivId): If you use this function ,you can print the tree after the html init complete.
+<br/>
+<br/>
+<div class="items">
+The example show you how to use "printTableTree()" function to print a tree
+</div>
+
+	<input type=button value="OpenAll" onclick="menuTree.openAllNodes()"/>
+	<input type=button value="CloseAll" onclick="menuTree.closeAllNodes()"/>
+</div>
+<div id="divs">
+
+	<script id="sc" language="JavaScript">
+		
+		var menuTree=new TableTree4J("menuTree","../");
+		menuTree.toMenuMode();
+		//Param: rootName,id,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen	
+		menuTree.setMenuRoot("ModuleName",-1,true,"MenuRoot","menu root href tip!","status text","","");
+		
+	//add data
+		//Param: menuName,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen
+		menuTree.addMenuNode("SystemManager<input type=\"checkbox\">",1,-1,null,5,"#","_self","tip","",null,null,null);
+
+		menuTree.addMenuNode("PopedomManager",2,-1,null,2);
+
+		menuTree.addMenuNode("MessageManager",3,-1,null,3);
+
+		menuTree.addMenuNode("FilesManager",4,-1,null,4,"#","",null,null,null,"../img/trash.gif",null);
+
+		menuTree.addMenuNode("RecordsManager",5,-1,null,1,"","","tip tip!");					
+		//-------------
+		menuTree.addMenuNode("Popedom",6,3,null,2);
+
+		menuTree.addMenuNode("Message",7,3,null,1);
+
+		menuTree.addMenuNode("Files",8,5,null,3);
+
+		menuTree.addMenuNode("Records",9,2,null,4);
+		//-------------
+		menuTree.addMenuNode("PopedomShows",10,6,null,"");
+
+		menuTree.addMenuNode("MessageShows",11,10,null,2);
+
+		menuTree.addMenuNode("FilesShows",12,9,null,3);
+	
+		menuTree.addMenuNode("RecordsShows",13,7,null,1);	
+		
+		menuTree.printTableTree();
+		//menuTree.printTableTreeToElement("DivId");	
+		
+		
+	</script>
+
+</div>	
+<br/>
+<br/>
+<br/>
+<div class="copyrightdiv">				
+		<p/>
+		<p/>
+		<div align="center">E-mail:lannerk@qq.com</div>
+		<div align="center">Copyright (c) 2007-2008 xcode-studio</div>		
+		<div align="center">TableTree4J version:1.1RE updata:2008.5.17</div>		
+</div>
+</body>
+</html>

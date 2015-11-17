@@ -8,6 +8,17 @@
 				</li>
 				<li><a href="@Url.Action("Index","RoleManager")">角色管理</a></li>
 			</ul>
+<div class="container-fluid" style="margin-bottom:20px;">
+  <div class="row">
+    <div class="col-md-12">
+          @if (IsOpraction(ViewContext.RouteData.DataTokens["area"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), "AddRole"))
+          {
+        <button type="button" id="addRole" class="btn btn-default">添加角色</button>
+        }
+    </div>
+  </div>
+</div>
+
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -24,11 +35,35 @@
           
         </tbody>
     </table>
+<div id="AddModel">
+    <form class="form-inline">
+    <div class="container-fluid">
+  <div class="row">
+  <div class="col-md-8 col-md-offset-3">
+      <div class="form-group">
+    <label for="exampleInputName2">角色名称</label>
+    <input type="text" id="roleName" class="form-control" >
+  </div>
+  </div>
+</div>
+<div class="row" style="margin-top:20px;">
+  <div class="col-md-4 col-md-offset-4">
+       <button type="button" id="OkAdRole" class="btn btn-default">确认</button>
+      <button type="button" id="CanckeRole" class="btn btn-default">取消</button>
+  </div>
+
+</div>
+</div>
+        </form>
+</div>
 @section jss{
 <script type="text/javascript">
+    var addRoleModel=null;//添加角色的模态框
+    var datable=null;
     $(function () {
+        addRoleModel=commObj.InitModal("AddModel", "编辑角色", 600, 168)
         //渲染表格
-        commObj.LoadTable("#example",
+        datable= commObj.LoadTable("#example",
             [
                 {"data":null},
                 { "data": "Rid" },
@@ -46,7 +81,14 @@
                  {
                      "targets": 3,
                      "render": function (data, type, full, meta) {
-                         return "<button class=\"btn btn-primary noty\" rid=\" + data.Rid + \" >权限设置</button>";
+                         var html = "";
+                         @{
+                             if (IsOpraction(ViewContext.RouteData.DataTokens["area"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), "SetOpreaction"))
+                             {
+                            <text>html = "<button class=\"btn btn-primary noty setOpraction\" rid=\"" + data.Rid + "\" >权限设置</button>";</text>
+                             }
+                          }
+                         return html;
                      }
                  },
                  {
@@ -65,7 +107,40 @@
             }
             );
     })
+    $("#addRole").click(function (e) {
+        addRoleModel.modal("show");
+       
+    })
+    $("#example").delegate(".setOpraction", "click", function () {
+        var rid = $(this).attr("rid");
+        if (rid) {
 
-
+            window.location = "@Url.Action("SetOpreaction")?rid=" + rid;
+        }
+    })
+    //取消按钮事件
+    $("#CanckeRole").click(function () {
+        addRoleModel.modal("hide");
+    })
+    //确认添加点击事件
+    $("#OkAdRole").click(function () {
+        var roleName = $("#roleName").val();
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("AddRole")",
+                dataType: "json",
+                data: { roleName: roleName },
+                success: function (ajaxObj) {
+                    var dataArr = [];
+                    if (ajaxObj.State == 0) {
+                        alert(ajaxObj.Message);
+                        datable.ajax.reload();
+                        addRoleModel.modal("hide");
+                    } else {
+                        alert(ajaxObj.Message);
+                    }
+                }
+         });
+    })
 </script>
     }

@@ -30,5 +30,28 @@ namespace Jurisdiction.BLL
         {
             return ida.GetOpractionByUid(uid);
         }
+
+        List<OpractionsExtend> GetAllOperaction()
+        {
+           return ida.GetAllOperaction();
+        }
+
+
+        List<OpractionsExtend> OprationIBLL.GetAllOperaction()
+        {
+            return ida.GetAllOperaction();
+        }
+
+
+        public List<OpractionsExtend> GetOpractionByRoid(int rid)
+        {
+           return ida.GetOpractionByRoid(rid);
+        }
+
+
+        public bool SetOpractionByRid(int rid, List<Entity.Opration> opraction)
+        {
+            return ida.SetOpractionByRid(rid, opraction);
+        }
     }
 }

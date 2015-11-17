@@ -105,5 +105,33 @@ namespace Jurisdiction.UI.Areas.Admin.WebBase
                 return HttpContext.Current.User as MyFormsPrincipal<UserTick>;
             }
         }
+
+
+        /// <summary>
+        /// 判断当前用户是否有访问指定url的权限
+        /// </summary>
+        /// <param name="area"></param>
+        /// <param name="contorll"></param>
+        /// <param name="acton"></param>
+        /// <returns></returns>
+        public bool IsOpraction(string areaName, string controllerName, string action)
+        {
+             
+            var list = Opracton.Where(c => string.Compare(areaName, c.Mares, true) == 0 && string.Compare(controllerName, c.MContorll, true) == 0 && string.Compare(action, c.Action, true) == 0).ToList<OpractionsExtend>();
+            return list.Count > 0;
+        }
+
+        /// <summary>
+        /// 根据当前请求url路径判断是否有权限
+        /// </summary>
+        /// <returns></returns>
+        public bool IsOpraction()
+        {
+            string areaName = ViewContext.RouteData.DataTokens["area"].ToString();
+            string controllerName = ViewContext.RouteData.Values["controller"].ToString();
+            string action = ViewContext.RouteData.Values["action"].ToString();
+            var list = Opracton.Where(c => string.Compare(areaName, c.Mares, true) == 0 && string.Compare(controllerName, c.MContorll, true) == 0 && string.Compare(action, c.Action, true) == 0).ToList<OpractionsExtend>();
+            return list.Count > 0;
+        }
     }
 }

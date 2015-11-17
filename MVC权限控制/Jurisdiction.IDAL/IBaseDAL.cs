@@ -61,6 +61,12 @@ namespace Jurisdiction.IDAL
        /// </summary>
        /// <returns></returns>
        bool Save();
+
+       /// <summary>
+       /// 处理批量新增
+       /// </summary>
+       /// <returns></returns>
+       bool BatchAdd(List<T> list);
       
     }
 }

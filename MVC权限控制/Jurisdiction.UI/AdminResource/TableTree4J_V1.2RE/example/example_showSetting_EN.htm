@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>TableTree4J V1.1RE Option</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=GBK"/>
+	<script type="text/javascript" src="../TableTree4J.js"></script>
+	<link rel="StyleSheet" href="../css/tabletree4j.css" type="text/css" />
+	
+
+<style>
+	
+.body {
+font-size:12px;
+font-family:"Arial";
+}
+.btnDiv a{
+color:#0000FF;	
+text-decoration: none;	
+}
+.btnDiv a:hover{
+color:#CC3300;	
+text-decoration: underline;	
+}
+.items{
+color:#669999;
+font-size:14px;		
+}
+.title{
+font-size:16px;		
+font-weight:bold;
+}
+.copyrightdiv{
+font-size:12px;	
+font-family:"Arial";
+color:#C0C0C0;	
+}
+.operationdiv{
+font-size:12px;	
+color:#666666;	
+}
+.centerClo {
+	text-align:center;
+}
+</style>
+
+<script language="JavaScript">
+
+	function showExampleSetting(treeObject,idTag){
+		
+		if($(idTag+"rootNodeBtn").checked){
+			treeObject.config.rootNodeBtn=true;
+		}else{
+			treeObject.config.rootNodeBtn=false;
+		}
+		if($(idTag+"folderAutoUrl").checked){
+			treeObject.config.folderAutoUrl=true;
+		}else{
+			treeObject.config.folderAutoUrl=false;
+		}
+		if($(idTag+"nodeHrefSelectBg").checked){
+			treeObject.config.nodeHrefSelectBg=true;
+		}else{
+			treeObject.config.nodeHrefSelectBg=false;
+		}
+		if($(idTag+"hrefOnfouceLine").checked){
+			treeObject.config.hrefOnfouceLine=true;
+		}else{
+			treeObject.config.hrefOnfouceLine=false;
+		}
+		if($(idTag+"hrefIconOnfouceLine").checked){
+			treeObject.config.hrefIconOnfouceLine=true;
+		}else{
+			treeObject.config.hrefIconOnfouceLine=false;
+		}
+		if($(idTag+"showTipTitle").checked){
+			treeObject.config.showTipTitle=true;
+		}else{
+			treeObject.config.showTipTitle=false;
+		}
+		if($(idTag+"showStatusText").checked){
+			treeObject.config.showStatusText=true;
+		}else{
+			treeObject.config.showStatusText=false;
+		}		
+		if($(idTag+"inOrder").checked){
+			treeObject.config.inOrder=true;
+		}else{
+			treeObject.config.inOrder=false;
+		}	
+		if($(idTag+"useIcon").checked){
+			treeObject.config.useIcon=true;
+		}else{
+			treeObject.config.useIcon=false;
+		}	
+		if($(idTag+"useLine").checked){
+			treeObject.config.useLine=true;
+		}else{
+			treeObject.config.useLine=false;
+		}																	
+		if($(idTag+"booleanInitOpenAll").checked){
+			treeObject.config.booleanInitOpenAll=true;
+		}else{
+			treeObject.config.booleanInitOpenAll=false;
+		}
+		if($(idTag+"useCookies").checked){
+			treeObject.config.useCookies=true;
+		}else{
+			treeObject.config.useCookies=false;
+		}			
+		if($(idTag+"booleanHighLightRow").checked){
+			treeObject.config.booleanHighLightRow=true;
+		}else{
+			treeObject.config.booleanHighLightRow=false;
+		}		
+		if($(idTag+"dafultTarget").value!=""){
+			treeObject.config.dafultTarget=$(idTag+"dafultTarget").value;
+		}else{
+			treeObject.config.dafultTarget=null;
+		}					
+	}
+	
+	function $(id){
+		return document.getElementById(id);
+	}
+	
+//GridTree
+	var gridTree;	
+	function showGridTree(){
+	//init
+		gridTree=new TableTree4J("gridTree","../");	
+		showExampleSetting(gridTree,"Grid");
+		gridTree.tableDesc="<table  border=\"1\" class=\"GridView\" width=\"100%\" id=\"table1\" cellspacing=\"0\" cellpadding=\"0\" style=\"border-collapse: collapse\"  bordercolordark=\"#C0C0C0\" bordercolorlight=\"#C0C0C0\" >";	
+		var headerDataList=new Array("ModuleName","Create Time","Status","Operation");
+		var widthList=new Array("20%","40%","10%","30%");
+		//param: arrayHeader,id,headerWidthList,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen
+		gridTree.setHeader(headerDataList,-1,null,true,"GridHead","This is a tipTitle of head href!","header status text","","");				
+		//set col style
+		gridTree.gridHeaderColStyleArray=new Array("","","","centerClo");
+		gridTree.gridDataCloStyleArray=new Array("","","","centerClo");	
+	
+	//add data		
+		var dataList=new Array("SystemManager","2007-12-10","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		//params:dataList,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen
+		gridTree.addGirdNode(dataList,1,-1,null,5,"#",null,"hello!","status text",null,null,null);
+
+		dataList=new Array("PopedomManager","2007-11-8","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,2,-1,null,2);
+		
+		dataList=new Array("MessageManager","2008-1-22","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,3,-1,null,3);
+		
+		dataList=new Array("FilesManager","2007-3-18","Out of use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,4,-1,null,4);
+		
+		dataList=new Array("RecordsManager","2007-4-20","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,5,-1,null,1);
+					
+		//-------------
+		dataList=new Array("Popedom","2007-11-8","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,6,3,null,2);
+		
+		dataList=new Array("Message","2008-1-22","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,7,3,null,1);
+		
+		dataList=new Array("Files","2007-3-18","Out of use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,8,5,null,3);
+		
+		dataList=new Array("Records","2007-4-20","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,9,2,null,4);
+
+		//-------------
+		dataList=new Array("PopedomShows","2007-11-8","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,10,6,null,"");
+		
+		dataList=new Array("MessageShows","2008-1-22","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,11,10,null,2);
+		
+		dataList=new Array("FilesShows","2007-3-18","Out of use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,12,9,null,3);
+		
+		dataList=new Array("RecordsShows","2007-4-20","In use","<a href=\"#\">delete</a> | <a href=\"#\">view</a> ");
+		gridTree.addGirdNode(dataList,13,7,null,1);
+	
+	//print	
+		gridTree.printTableTreeToElement("gridTreeDiv");		
+	
+	}
+	
+
+
+	
+	
+	
+//menuTree
+	var menuTree;	
+	function showMenuTree(){
+	//init
+		menuTree=new TableTree4J("menuTree","../");
+		menuTree.toMenuMode();
+		showExampleSetting(menuTree,"Menu");
+		menuTree.setImgRootPath("../thame/img_style_blue/");
+		//param: rootName,id,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen		
+		menuTree.setMenuRoot("ModuleName",-1,true,"MenuRoot","menu root href tip!","header status text",null,null);
+	//add data
+		//param：menuName,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen
+		menuTree.addMenuNode("SystemManager",1,-1,null,5,"#","","href tip","status text",null,null,null);
+
+		menuTree.addMenuNode("PopedomManager",2,-1,null,2);
+
+		menuTree.addMenuNode("MessageManager",3,-1,null,3);
+
+		menuTree.addMenuNode("FilesManager",4,-1,null,4,"#","",null,null,null,"../img/trash.gif",null);
+
+		menuTree.addMenuNode("RecordsManager",5,-1,null,1,"","","tip tip!");					
+		//-------------
+		menuTree.addMenuNode("Popedom",6,3,null,2);
+
+		menuTree.addMenuNode("Message",7,3,null,1);
+
+		menuTree.addMenuNode("Files",8,5,null,3);
+
+		menuTree.addMenuNode("Records",9,2,null,4);
+		//-------------
+		menuTree.addMenuNode("PopedomShows",10,6,null,"");
+
+		menuTree.addMenuNode("MessageShows",11,10,null,2);
+
+		menuTree.addMenuNode("FilesShows",12,9,null,3);
+	
+		menuTree.addMenuNode("RecordsShows",13,7,null,1);		
+	//print	
+		menuTree.printTableTreeToElement("menuTreeDiv");				
+		
+	}		
+		
+</script>
+
+</head>
+	<body class="body">
+		<div style="font-size:25px;color:#993333;font-weight:bold">
+			TableTree4J Examples
+		</div>		
+		<div id="tips" class="title">
+			Show TableTree4J all option.
+			<hr/>
+		</div>
+		<div align="right">
+		<a href="exampleListEN.htm" style="color:#0000FF;font-size:12px">Back</a>	
+		</div>			
+		<div class="btnDiv">
+			<span class="items">GridTree</span>
+			
+			<div class="operationdiv">
+				<input type="checkbox" id="GridrootNodeBtn" value="ON" checked />root button &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GridfolderAutoUrl" value="ON" />Auto add link to folder &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="checkbox" id="GridnodeHrefSelectBg" value="ON" />Highlight the select leaf node &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GridhrefOnfouceLine" value="ON" />Show link dashed &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GridhrefIconOnfouceLine"  value="ON" />Show icon link dashed &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GridshowTipTitle" checked value="ON" />Show tip of link &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GridshowStatusText" checked value="ON" />Show status tip of link &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GridinOrder" checked value="ON" />Order the node &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="checkbox" id="GriduseIcon" value="ON" />Show node icon &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="checkbox" id="GriduseLine" checked value="ON"/>Show the node dashed of the tree &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="checkbox" id="GridbooleanInitOpenAll" value="ON" />Boolean open all when init &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GriduseCookies" value="ON" />Use Cookie &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="GridbooleanHighLightRow" checked value="ON" />Boolean highlight the select row &nbsp;&nbsp;&nbsp;&nbsp;
+				<br/>[ Tree Style ClassName:GRIDTREESTYLE ] [ Tree Mode:GRID ] [ Dafult cookie live time:30*24*60*60*1000 ] [ Dafult highlight row style:GridHighLightRow ]
+				<br/>
+				Dafult link target
+					<select size="1" id="GriddafultTarget">
+						<option selected value="">none</option>
+						<option value="_parent">_parent</option>
+						<option value="_blank">_blank</option>
+						<option value="_self">_self</option>
+						<option value="_top">_top</option>
+						</select> 
+							
+				
+			</div>	
+			
+			<input type="button" value="Refresh the GridTree" onclick="showGridTree()" />&nbsp;&nbsp;
+			<a  href="javascript:gridTree.openAllNodes()">OpenAll</a> | 
+			<a  href="javascript:gridTree.closeAllNodes()">CloseAll</a>
+		</div>
+		<div id="gridTreeDiv">
+			
+		</div>
+		<p/>
+		<p/>
+		
+		<div class="btnDiv" >
+			<span class="items">MenuTree</span><br/>
+
+			<div class="operationdiv">
+				<input type="checkbox" id="MenurootNodeBtn" value="ON"  />root button &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenufolderAutoUrl" checked value="ON" />Auto add link to folder &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="checkbox" id="MenunodeHrefSelectBg" checked value="ON" />Highlight the select leaf node &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenuhrefOnfouceLine" value="ON" />Show link dashed &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenuhrefIconOnfouceLine"  value="ON" />Show icon link dashed &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenushowTipTitle" checked value="ON" />Show tip of link &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenushowStatusText" checked value="ON" />Show status tip of link &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenuinOrder" checked value="ON" />Order the node &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="checkbox" id="MenuuseIcon" checked value="ON" /> Show node icon &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenuuseLine" checked value="ON" />Show the node dashed of the tree &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="checkbox" id="MenubooleanInitOpenAll" value="ON" />Boolean open all when init &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenuuseCookies" value="ON" />Use Cookie &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="checkbox" id="MenubooleanHighLightRow"  value="ON" />Boolean highlight the select row &nbsp;&nbsp;&nbsp;&nbsp;
+				<br/>[ Tree Style ClassName:MENUTREESTYLE ] [ Tree Mode:MENU ] [ Dafult cookie live time:30*24*60*60*1000 ] [ Dafult highlight row style:GridHighLightRow ]
+				<br/>
+				Dafult link target
+					<select size="1" id="MenudafultTarget">
+						<option selected value="">none</option>
+						<option value="_parent">_parent</option>
+						<option value="_blank">_blank</option>
+						<option value="_self">_self</option>
+						<option value="_top">_top</option>
+						</select>
+						
+										 
+			</div>				
+			
+			<input type="button" value="Refresh the MenuTree" onclick="showMenuTree()" />&nbsp;&nbsp;
+			<a  href="javascript:menuTree.openAllNodes()">OpenAll</a> | 
+			<a  href="javascript:menuTree.closeAllNodes()">CloseAll</a>
+		</div>
+		<div id="menuTreeDiv">
+			
+		</div>
+
+	
+		
+<div class="copyrightdiv">				
+		<p/>
+		<p/>
+		<div align="center">E-mail:lannerk@qq.com</div>
+		<div align="center">Copyright (c) 2007-2008 xcode-studio</div>		
+		<div align="center">TableTree4J version:1.1RE updata:2008.5.17</div>		
+</div>
+
+	
+	</body>
+</html>
+

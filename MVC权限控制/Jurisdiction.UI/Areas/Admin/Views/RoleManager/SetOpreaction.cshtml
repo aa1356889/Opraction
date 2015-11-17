@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "SetOpreaction";
+}
+@section css{
+    <link href="@BaseHelper.LoadResource("TableTree4J_V1.2RE/css/tabletree4j.css")" rel="stylesheet" />
+    <script src="@BaseHelper.LoadResource("TableTree4J_V1.2RE/TableTree4J.js")"></script>
+}
+<ul class="breadcrumb">
+				<li>
+					<i class="icon-home"></i>
+					<a href="index.html">后台管理</a> 
+				</li>
+				<li><a href="@Url.Action("Index","RoleManager")">角色管理</a></li>
+               <li><a href="javascript:void(0)">权限设置</a></li>
+			</ul>
+<div id="gridTreeDiv">
+			
+		</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-5" style="margin-top:6px;">
+      <a class="quick-button-small span2 settionOption">
+							<i class="icon-cogs"></i>
+							<p>确认设置</p>
+						</a>
+  </div>
+</div>
+@section jss{
+    <script type="text/javascript">
+
+        var gridTree;
+        function showExampleSetting(treeObject, idTag) {
+            treeObject.config.rootNodeBtn = true;
+            treeObject.config.booleanInitOpenAll = true;
+            treeObject.config.useIcon = true;
+        }
+
+        function LoadTree(data) {
+            gridTree = new TableTree4J("gridTree", "/AdminResource/TableTree4J_V1.2RE/");
+            showExampleSetting(gridTree, "Grid");
+            gridTree.tableDesc = "<table border=\"1\" class=\"GridView\" width=\"100%\" id=\"table1\" cellspacing=\"0\" cellpadding=\"0\" style=\"border-collapse: collapse\"  bordercolordark=\"#C0C0C0\" bordercolorlight=\"#C0C0C0\" >";
+            var headerDataList = new Array("模块名", "权限");
+            var widthList = new Array("20%","80%");
+            //参数: arrayHeader,id,headerWidthList,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen
+            gridTree.setHeader(headerDataList, -1, widthList, true, "GridHead", "This is a tipTitle of head href!", "header status text", "", "");
+
+            //设置列样式
+            gridTree.gridHeaderColStyleArray = new Array("", "", "", "centerClo");
+            gridTree.gridDataCloStyleArray = new Array("", "", "", "centerClo");
+
+           
+            for (var i = 0; i < data.length; i++) {
+
+                dataList = new Array(data[i].MName, data[i].Html);
+                gridTree.addGirdNode(dataList, data[i].Mid, data[i].MParetId, null, null);
+            }
+            gridTree.printTableTreeToElement("gridTreeDiv");
+
+        }
+        $(function () {
+            InitTree();
+            //设置权限点击事件
+            $(".settionOption").click(function () {
+                var values = [];
+                var selOptions = $(".selOpraction:checked");
+                for (var i = 0; i < selOptions.length; i++) {
+                    values.push($(selOptions[i]).val());
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("Settion")",
+                    dataType: "json",
+                    data:{rid:"@Request["rid"]",opractions:values.join(",")},
+                    success: function (ajaxObj) {
+                        if (ajaxObj.State == 0) {
+                            alert(ajaxObj.Message);
+                        } else {
+                            alert(ajaxObj.Message);
+                        }
+                    }
+                })
+            })
+        })
+        //初始化树
+        function InitTree() {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("GetAllOpraction")",
+                dataType: "json",
+                data:{rid:"@Request["rid"]"},
+                success: function (ajaxObj) {
+                    var dataArr =[];
+                    if (ajaxObj.State == 0) {
+                        var menus = ajaxObj.Datas.Menus;
+                        var functins = ajaxObj.Datas.Functions;
+                        for (var i = 0; i < menus.length ; i++) {
+                            var html = "";
+                            for (var j = 0; j < functins.length; j++) {
+                                if (functins[j].Mid == menus[i].Mid) {
+                                    if (functins[j].isCheck) {
+                                        html += "<input type=\"checkbox\" class='selOpraction' checked='checked' data-id='" + menus[i].Mid + "' data-parentId='" + menus[i].ParentId + "'  value='" + functins[j].Mid + "|" + functins[j].Fid + "'>" + functins[j].Fname + "    "
+                                    } else {
+                                        html += "<input type=\"checkbox\" class='selOpraction'  data-id='" + menus[i].Mid + "' data-parentId='" + menus[i].ParentId + "'  value='" + functins[j].Mid+ "|" + functins[j].Fid + "'>" + functins[j].Fname + "    "
+                                    }
+                                }
+                            }
+                            dataArr[dataArr.length] = {MName:menus[i].MName,Mid:menus[i].Mid, MParetId:menus[i].ParentId,Html:html};
+                        }
+                      LoadTree(dataArr);
+                    } else {
+                        alert(ajaxObj.Message)
+                    }
+                }
+            });
+        }
+        $("#gridTreeDiv").delegate(".selOpraction", "click", function () {
+            var parid = $(this).attr("data-parentId");
+            if ($(".selOpraction[data-parentId='" + parid + "']:checked").length > 0) {
+                $(".selOpraction[data-id='" + parid + "']").prop("checked", "checked");
+            } else {
+                $(".selOpraction[data-id='" + parid + "']").prop("checked",false);
+            }
+        })
+    </script>
+}

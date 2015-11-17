@@ -19,7 +19,17 @@ namespace Jurisdiction.IBLL
 
 
         List<OpractionsExtend> GetOpractionByUid(int uid);
-    
-    
+
+        List<OpractionsExtend> GetAllOperaction();
+
+        List<OpractionsExtend> GetOpractionByRoid(int rid);
+
+        /// <summary>
+        /// 给指定角色设置权限
+        /// </summary>
+        /// <param name="rid"></param>
+        /// <param name="opraction"></param>
+        /// <returns></returns>
+        bool SetOpractionByRid(int rid, List<Jurisdiction.Entity.Opration> opraction);
     }
 }

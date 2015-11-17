@@ -20,7 +20,7 @@ namespace WebHelper
        /// <param name="obj"></param>
        public static void SetData(string key, object obj, int minute)
        {
-           HttpRuntime.Cache.Insert(key, obj, null,DateTime.Now.AddMinutes(minute),System.Web.Caching.Cache.NoSlidingExpiration);
+           HttpContext.Current.Cache.Insert(key, obj, null, DateTime.Now.AddMinutes(minute), System.Web.Caching.Cache.NoSlidingExpiration);
 
        }
 
@@ -32,7 +32,7 @@ namespace WebHelper
        /// <param name="minute"></param>
        public static void SetDataInRelative(string key, object obj, int minute)
        {
-           HttpRuntime.Cache.Insert(key, obj, null,System.Web.Caching.Cache.NoAbsoluteExpiration,new TimeSpan(0,minute,0));
+           HttpContext.Current.Cache.Insert(key, obj, null, System.Web.Caching.Cache.NoAbsoluteExpiration, new TimeSpan(0, minute, 0));
        }
        /// <summary>
        /// 从指定key中取得数据
@@ -42,7 +42,7 @@ namespace WebHelper
        /// <returns></returns>
        public static T GetData<T>(string key)where T:class
        {
-           object obj = HttpRuntime.Cache.Get(key);
+           object obj = HttpContext.Current.Cache.Get(key);
            if (obj == null)
            {
                return null;

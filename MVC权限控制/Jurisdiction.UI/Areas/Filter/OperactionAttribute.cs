@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using WebHelper;
+using WebHelper.Attrbute;
 
 namespace Jurisdiction.UI.Areas.Filter
 {
@@ -39,15 +40,24 @@ namespace Jurisdiction.UI.Areas.Filter
                 string areaName = filterContext.RouteData.DataTokens["area"].ToString();
                 string action = filterContext.ActionDescriptor.ActionName;
                 string controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
-
+                //获得重写验证url的特性对象
+                object[] objes=filterContext.ActionDescriptor.GetCustomAttributes(typeof(InitValidateUrlAttribute),false);
+                if (objes != null && objes.Length > 0)
+                {
+                    InitValidateUrlAttribute initurl = objes[0] as InitValidateUrlAttribute;
+                    action =initurl.Action;
+                }
+                var list = controller.Opracton.Where(c => string.Compare(areaName, c.Mares, true) == 0 && string.Compare(controllerName, c.MContorll, true) == 0 && string.Compare(action, c.Action, true) == 0).ToList<OpractionsExtend>();
                 //url不匹配表示没有权限
-                if (controller.Opracton.Where(c => string.Compare(areaName, c.Mares, true) == 0 && string.Compare(controllerName, c.MContorll, true) == 0 && string.Compare(action, c.Action, true) == 0).ToList<OpractionsExtend>().Count > 0)
+                if (list.Count<=0)
                 {
                     //判断是ajax请求还是浏览器请求 响应不同结果
                     if (filterContext.HttpContext.Request.IsAjaxRequest())
                     {
                         //ajax请求响应json格式字符串
-                        JsonHelper.SerializeObj(new { State = 1, Message = "不好意思您没有权限哦" });
+                        JsonResult result= new JsonResult();
+                        result.Data = new { State = 1, Message = "不好意思您没有权限哦,如需开通！请联系系统管理员" };
+                        filterContext.Result = result;
                     }
                     else
                     {

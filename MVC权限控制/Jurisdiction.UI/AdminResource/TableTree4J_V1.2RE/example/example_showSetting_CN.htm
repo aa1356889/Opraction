@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+
+<head>
+	<title>TableTree4J V1.1RE 常用展示</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=GBK"/>
+	<script type="text/javascript" src="../TableTree4J.js"></script>
+	<link rel="StyleSheet" href="../css/tabletree4j.css" type="text/css" />
+	
+
+<style>
+	
+.body {
+font-size:12px;
+}
+.btnDiv a{
+color:#0000FF;	
+text-decoration: none;	
+}
+.btnDiv a:hover{
+color:#CC3300;	
+text-decoration: underline;	
+}
+.items{
+color:#669999;
+font-size:14px;		
+}
+.title{
+font-size:16px;		
+font-weight:bold;
+}
+.copyrightdiv{
+font-size:12px;	
+font-family:"Arial";
+color:#C0C0C0;	
+}
+.operationdiv{
+font-size:12px;	
+color:#666666;	
+}
+.centerClo {
+	text-align:center;
+}
+</style>
+
+<script language="JavaScript">
+
+	function showExampleSetting(treeObject,idTag){
+		
+		if($(idTag+"rootNodeBtn").checked){
+			treeObject.config.rootNodeBtn=true;
+		}else{
+			treeObject.config.rootNodeBtn=false;
+		}
+		if($(idTag+"folderAutoUrl").checked){
+			treeObject.config.folderAutoUrl=true;
+		}else{
+			treeObject.config.folderAutoUrl=false;
+		}
+		if($(idTag+"nodeHrefSelectBg").checked){
+			treeObject.config.nodeHrefSelectBg=true;
+		}else{
+			treeObject.config.nodeHrefSelectBg=false;
+		}
+		if($(idTag+"hrefOnfouceLine").checked){
+			treeObject.config.hrefOnfouceLine=true;
+		}else{
+			treeObject.config.hrefOnfouceLine=false;
+		}
+		if($(idTag+"hrefIconOnfouceLine").checked){
+			treeObject.config.hrefIconOnfouceLine=true;
+		}else{
+			treeObject.config.hrefIconOnfouceLine=false;
+		}
+		if($(idTag+"showTipTitle").checked){
+			treeObject.config.showTipTitle=true;
+		}else{
+			treeObject.config.showTipTitle=false;
+		}
+		if($(idTag+"showStatusText").checked){
+			treeObject.config.showStatusText=true;
+		}else{
+			treeObject.config.showStatusText=false;
+		}		
+		if($(idTag+"inOrder").checked){
+			treeObject.config.inOrder=true;
+		}else{
+			treeObject.config.inOrder=false;
+		}	
+		if($(idTag+"useIcon").checked){
+			treeObject.config.useIcon=true;
+		}else{
+			treeObject.config.useIcon=false;
+		}	
+		if($(idTag+"useLine").checked){
+			treeObject.config.useLine=true;
+		}else{
+			treeObject.config.useLine=false;
+		}																	
+		if($(idTag+"booleanInitOpenAll").checked){
+			treeObject.config.booleanInitOpenAll=true;
+		}else{
+			treeObject.config.booleanInitOpenAll=false;
+		}		
+		if($(idTag+"useCookies").checked){
+			treeObject.config.useCookies=true;
+		}else{
+			treeObject.config.useCookies=false;
+		}				
+		if($(idTag+"booleanHighLightRow").checked){
+			treeObject.config.booleanHighLightRow=true;
+		}else{
+			treeObject.config.booleanHighLightRow=false;
+		}		
+		if($(idTag+"dafultTarget").value!=""){
+			treeObject.config.dafultTarget=$(idTag+"dafultTarget").value;
+		}else{
+			treeObject.config.dafultTarget=null;
+		}					
+	}
+	
+	function $(id){
+		return document.getElementById(id);
+	}
+	
+//GridTree
+	var gridTree;	
+	function showGridTree(){
+	//init
+		gridTree=new TableTree4J("gridTree","../");	
+		showExampleSetting(gridTree,"Grid");
+		gridTree.tableDesc="<table border=\"1\" class=\"GridView\" width=\"100%\" id=\"table1\" cellspacing=\"0\" cellpadding=\"0\" style=\"border-collapse: collapse\"  bordercolordark=\"#C0C0C0\" bordercolorlight=\"#C0C0C0\" >";	
+		var headerDataList=new Array("模块名","创建时间","状态","操作");
+		var widthList=new Array("20%","40%","10%","30%");
+		//参数: arrayHeader,id,headerWidthList,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen
+		gridTree.setHeader(headerDataList,-1,widthList,true,"GridHead","This is a tipTitle of head href!","header status text","","");				
+
+		//设置列样式
+		gridTree.gridHeaderColStyleArray=new Array("","","","centerClo");
+		gridTree.gridDataCloStyleArray=new Array("","","","centerClo");		
+	
+	//add data		
+		var dataList=new Array("系统管理","2007-12-10","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		//参数: dataList,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen
+		gridTree.addGirdNode(dataList,1,-1,null,3,"#",null,"hello!","状态栏文字",null,null,null);
+
+		dataList=new Array("权限管理","2007-11-8","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,2,-1,null,2);
+		
+		dataList=new Array("信息管理","2008-1-22","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,3,-1,null,5);
+		
+		dataList=new Array("文件管理","2007-3-18","停用","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,4,-1,null,4);
+		
+		dataList=new Array("日志管理","2007-4-20","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,5,-1,null,1);
+					
+		//-------------
+		dataList=new Array("权限管理2","2007-11-8","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,6,3,null,2);
+		
+		dataList=new Array("信息管理2","2008-1-22","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,7,3,null,1);
+		
+		dataList=new Array("文件管理2","2007-3-18","停用","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,8,5,null,3);
+		
+		dataList=new Array("日志管理2","2007-4-20","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,9,2,null,4);
+
+		//-------------
+		dataList=new Array("权限管理3","2007-11-8","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,10,6,null,"");
+		
+		dataList=new Array("信息管理3","2008-1-22","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,11,10,null,2);
+		
+		dataList=new Array("文件管理3","2007-3-18","停用","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,12,9,null,3);
+		
+		dataList=new Array("日志管理3","2007-4-20","使用中","<a href=\"#\">删除</a> | <a href=\"#\">查看</a> ");
+		gridTree.addGirdNode(dataList,13,7,null,1);
+	
+	//print	
+		gridTree.printTableTreeToElement("gridTreeDiv");			
+	
+	}
+	
+
+
+	
+	
+	
+//menuTree
+	var menuTree;	
+	function showMenuTree(){
+	//初始化
+		menuTree=new TableTree4J("menuTree","../");
+		menuTree.toMenuMode();
+		showExampleSetting(menuTree,"Menu");
+		
+		
+		//参数: rootName,id,booleanOpen,classStyle,hrefTip,hrefStatusText,icon,iconOpen	
+		menuTree.setMenuRoot("模块名",-1,true,"MenuRoot","menu root href tip!","根状态栏文字","","");
+		menuTree.setImgRootPath("../thame/img_style_book/");
+	//添加数据
+		//参数: menuName,id,pid,booleanOpen,order,url,target,hrefTip,hrefStatusText,classStyle,icon,iconOpen
+		menuTree.addMenuNode("系统管理",1,-1,null,5,"#","_self","呵呵呵","",null,null,null);
+
+		menuTree.addMenuNode("权限管理",2,-1,null,2);
+
+		menuTree.addMenuNode("信息管理",3,-1,null,3);
+
+		menuTree.addMenuNode("文件管理",4,-1,null,4,"#","",null,null,null,"../img/trash.gif");
+
+		menuTree.addMenuNode("日志管理",5,-1,null,1,"","","哈哈哈","显示在状态栏的文字");					
+		//-------------
+		menuTree.addMenuNode("权限管理2",6,3,null,2);
+
+		menuTree.addMenuNode("信息管理2",7,3,null,1);
+
+		menuTree.addMenuNode("文件管理2",8,5,null,3);
+
+		menuTree.addMenuNode("日志管理2",9,2,null,4);
+		//-------------
+		menuTree.addMenuNode("权限管理3",10,6,null,"");
+
+		menuTree.addMenuNode("信息管理3",11,10,null,2);
+
+		menuTree.addMenuNode("文件管理3",12,9,null,3);
+	
+		menuTree.addMenuNode("日志管理3",13,7,null,1);		
+	//print	
+		menuTree.printTableTreeToElement("menuTreeDiv");				
+		
+	}		
+		
+</script>
+
+</head>
+	<body class="body">
+		<div style="font-size:25px;color:#993333;font-weight:bold">
+			TableTree4J Examples
+		</div>		
+		<div id="tips" class="title">
+			展示 TableTree4J 的各种设置。
+			<hr/>
+		</div>
+		<div align="right">
+		<a href="exampleListCN.htm" style="color:#0000FF;font-size:12px">返回</a>	
+		</div>			
+		<div class="btnDiv">
+			<span class="items">表格树</span>
+			
+			<div class="operationdiv">
+				<input type="checkbox" id="GridrootNodeBtn" value="ON" checked />根按钮 
+				<input type="checkbox" id="GridfolderAutoUrl" value="ON" />自动为父节点加展开的链接  
+				<input type="checkbox" id="GridnodeHrefSelectBg" value="ON" />高亮选中的页节点 
+				<input type="checkbox" id="GridhrefOnfouceLine" value="ON" />文字超链接虚线框 
+				<input type="checkbox" id="GridhrefIconOnfouceLine"  value="ON" />图片超链接虚线框 
+				<input type="checkbox" id="GridshowTipTitle" checked value="ON" />显示文字超链接的提示 
+				<input type="checkbox" id="GridshowStatusText" checked value="ON" />显示文字超链接的状态栏提示 
+				<input type="checkbox" id="GridinOrder" checked value="ON" />节点排序  
+				<input type="checkbox" id="GriduseIcon" value="ON" />显示节点图标  
+				<input type="checkbox" id="GriduseLine" checked value="ON"/>显示树虚线  
+				<input type="checkbox" id="GridbooleanInitOpenAll" value="ON" />初始化展开所有 
+				<input type="checkbox" id="GriduseCookies" value="ON" />使用Cookie保存状态
+				<input type="checkbox" id="GridbooleanHighLightRow" checked value="ON" />高亮鼠标所在行 
+				[ 树风格:GRIDTREESTYLE ] [ 树模式:GRID ] [ 默认Cookie生存时间:30*24*60*60*1000 ] [ 默认高亮行风格:GridHighLightRow ]
+				<br/>
+				默认链接跳转目标
+					<select size="1" id="GriddafultTarget">
+						<option selected value="">无</option>
+						<option value="_parent">_parent</option>
+						<option value="_blank">_blank</option>
+						<option value="_self">_self</option>
+						<option value="_top">_top</option>
+						</select> 
+							
+				
+			</div>	
+			
+			<input type="button" value="刷新表格树" onclick="showGridTree()" />&nbsp;&nbsp;
+			<a  href="javascript:gridTree.openAllNodes()">展开所有</a> | 
+			<a  href="javascript:gridTree.closeAllNodes()">关闭所有</a>
+		</div>
+		<div id="gridTreeDiv">
+			
+		</div>
+		<p/>
+		<p/>
+		
+		<div class="btnDiv" >
+			<span class="items">菜单树</span><br/>
+
+			<div class="operationdiv">
+				<input type="checkbox" id="MenurootNodeBtn" value="ON"  />根按钮 
+				<input type="checkbox" id="MenufolderAutoUrl" checked value="ON" />自动为父节点加展开的链接  
+				<input type="checkbox" id="MenunodeHrefSelectBg" checked value="ON" />高亮选中的页节点 
+				<input type="checkbox" id="MenuhrefOnfouceLine" value="ON" />文字超链接虚线框 
+				<input type="checkbox" id="MenuhrefIconOnfouceLine"  value="ON" />图片超链接虚线框 
+				<input type="checkbox" id="MenushowTipTitle" checked value="ON" />显示文字超链接的提示 
+				<input type="checkbox" id="MenushowStatusText" checked value="ON" />显示文字超链接的状态栏提示 
+				<input type="checkbox" id="MenuinOrder" checked value="ON" />节点排序  
+				<input type="checkbox" id="MenuuseIcon" checked value="ON" /> 显示节点图标  
+				<input type="checkbox" id="MenuuseLine" checked value="ON" />显示树虚线  
+				<input type="checkbox" id="MenubooleanInitOpenAll" value="ON" />初始化展开所有
+				<input type="checkbox" id="MenuuseCookies" value="ON" />使用Cookie保存状态 
+				<input type="checkbox" id="MenubooleanHighLightRow" value="ON" />高亮鼠标所在行 				
+				 [ 树风格:MENUTREESTYLE ] [ 树模式:MENU ] [ 默认Cookie生存时间:30*24*60*60*1000 ] [ 默认高亮行风格:GridHighLightRow ]
+				<br/>
+				默认链接跳转目标
+					<select size="1" id="MenudafultTarget">
+						<option selected value="">无</option>
+						<option value="_parent">_parent</option>
+						<option value="_blank">_blank</option>
+						<option value="_self">_self</option>
+						<option value="_top">_top</option>
+						</select>
+						
+										 
+			</div>				
+			
+			<input type="button" value="刷新菜单树" onclick="showMenuTree()" />&nbsp;&nbsp;
+			<a  href="javascript:menuTree.openAllNodes()">展开所有</a> | 
+			<a  href="javascript:menuTree.closeAllNodes()">关闭所有</a>
+		</div>
+		<div id="menuTreeDiv">
+			
+		</div>
+
+	
+		
+<div class="copyrightdiv">				
+		<p/>
+		<p/>
+		<div align="center">E-mail:lannerk@qq.com</div>
+		<div align="center">Copyright (c) 2007-2008 xcode-studio</div>		
+		<div align="center">TableTree4J version:1.1RE updata:2008.5.17</div>		
+</div>
+
+	
+	</body>
+</html>
+

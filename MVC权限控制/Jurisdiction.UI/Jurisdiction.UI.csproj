@@ -127,6 +127,7 @@
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\MyControllers.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleManagerController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkbenchController.cs" />
     <Compile Include="Areas\Admin\WebBase\BaseHelper.cs" />
     <Compile Include="Areas\Admin\WebBase\BasePage.cs" />
@@ -764,6 +765,113 @@
     <Content Include="AdminResource\js\jquery.uploadify-3.1.min.js" />
     <Content Include="AdminResource\js\modernizr.js" />
     <Content Include="AdminResource\js\retina.js" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\css\tabletree4j.css" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\doc\apiCN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\doc\apiEN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\doc\index.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\exampleListCN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\exampleListEN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\example_printTree_CN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\example_printTree_EN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\example_showSetting_CN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\example_showSetting_EN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\explame_common_CN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\explame_common_EN.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\example\index.htm" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\base.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\cd.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\empty.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\folder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\folderopen.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\globe.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\imgfolder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\join.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\joinbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\line.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\minusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\musicfolder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\nolines_minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\nolines_plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\page.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\plusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\question.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\trash.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\TableTree4J.js" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\base.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\empty.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\folder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\folderopen.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\join.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\joinbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\line.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\minusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\nolines_minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\nolines_plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\page.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\plusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\base.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\empty.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\folder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\folderopen.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\folderopen2.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\join.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\joinbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\line.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\minusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\nolines_minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\nolines_plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\page.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\plusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\base.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\cd.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\empty.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\folder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\folderopen.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\globe.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\imgfolder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\join.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\joinbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\line.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\minusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\musicfolder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\nolines_minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\nolines_plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\page.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\plusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\question.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\trash.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\base.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\cd.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\empty.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\folder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\folderopen.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\globe.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\imgfolder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\join.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\joinbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\line.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\minusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\musicfolder.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\nolines_minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\nolines_plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\page.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\plus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\plusbottom.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\question.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\trash.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_es\arrow.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_es\menu_arrow.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_es\menu_minus.gif" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_es\menu_plus.gif" />
     <Content Include="Areas\js\CommonJs.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -874,6 +982,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\RoleManager\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminResource\TableTree4J_V1.2RE\img\Thumbs.db" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blueAll\Thumbs.db" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_blue\Thumbs.db" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_book\Thumbs.db" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_default\Thumbs.db" />
+    <Content Include="AdminResource\TableTree4J_V1.2RE\thame\img_style_es\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\RoleManager\SetOpreaction.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\UserManager\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

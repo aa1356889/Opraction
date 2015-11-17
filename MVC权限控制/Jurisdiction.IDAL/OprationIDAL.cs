@@ -18,6 +18,11 @@ namespace Jurisdiction.IDAL
     {
 
 
+       /// <summary>
+       /// 根据用户id获得权限数据
+       /// </summary>
+       /// <param name="uid"></param>
+       /// <returns></returns>
         List<OpractionsExtend> GetOpractionByUid(int uid);
 
 
@@ -26,5 +31,14 @@ namespace Jurisdiction.IDAL
         /// </summary>
         /// <returns></returns>
         List<OpractionsExtend> GetAllOperaction();
+
+        /// <summary>
+        /// 根据角色id权限数据
+        /// </summary>
+        /// <param name="rid"></param>
+        /// <returns></returns>
+        List<OpractionsExtend> GetOpractionByRoid(int rid);
+
+        bool SetOpractionByRid(int rid, List<Jurisdiction.Entity.Opration> opractions);
     }
 }

@@ -40,8 +40,34 @@
                 data: setDataCallBack
             }
 
-       })
-       console.log(aa);
+        })
+        return aa;
+    },index:0,
+    InitModal: function (domId, title, width, height, top, left) {
+        if (!top) {
+            top = 10;
+        }
+        if (!left) {
+            left = 50;
+        }
+        var html = "<div class=\"modal-dialog  modal fade \" role=\"document\"  tabindex=\"-1\" role=\"dialog\"  id=\"myModal" + commObj.index + "\"  style=\"top:" + top + "%; left:" + left + "%; max-width:" + width + "px; position:absolute;max-height:" + height + "px;\">" +
+    "<div class=\"modal-content\">" +
+      "<div class=\"modal-header\">"+
+      "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" +
+      "<h4 class=\"modal-title\" id=\"myModalLabel" + commObj.index + "\">" + title + "</h4>" +
+    "</div>" +
+    "<div class=\"modal-body\">" +
+    "</div>" +
+"</div>" +
+    "</div>";
+        var model = $(html)
+        if ($("#" + domId)) {
+            model.children().children(".modal-body").append($("#" + domId));
+        }
+      $("body").append(model);
+      commObj.index++;
+
+      return model;
     }
 
 };
