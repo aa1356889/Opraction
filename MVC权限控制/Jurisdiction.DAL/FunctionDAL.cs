@@ -11,14 +11,24 @@ namespace Jurisdiction.DAL
 {
     using System;
     using System.Collections.Generic;using Jurisdiction.Entity;
+    using System.Data.SqlClient;
     
     public  class FunctionDAL:DALBase<Function>,IDAL.FunctionIDAL
     {
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+        public bool BathDelete(string ids)
+        {
+             
+          List<SqlParameter> parameters=new List<SqlParameter>();
+          string parametesrStr=string.Empty;
+          SqlHelper.LoadSql(ids,ref parameters, ref parametesrStr);
+          string sql=string.Format(" delete Function f where Fid in({0})",parametesrStr);
+          return je.Database.ExecuteSqlCommand(sql, parameters)>0;
+        }
     }
 }

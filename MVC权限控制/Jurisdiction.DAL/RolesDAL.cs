@@ -14,11 +14,15 @@ namespace Jurisdiction.DAL
     
     public  class RolesDAL:DALBase<Roles>,IDAL.RolesIDAL
     {
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+        public bool BathDelete(string ids)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -70,7 +70,6 @@ G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Jurisdiction.Entity.pdb
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Jurisdiction.IBLL.pdb
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\WebHelper.pdb
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Antlr3.Runtime.pdb
-G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Autofac.xml
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Autofac.Integration.Mvc.xml
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Newtonsoft.Json.xml
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\System.Web.Optimization.xml
@@ -97,3 +96,4 @@ G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\zh-Hans\EntityFramework.r
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\obj\Debug\Jurisdiction.UI.csprojResolveAssemblyReference.cache
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\obj\Debug\Jurisdiction.UI.dll
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\obj\Debug\Jurisdiction.UI.pdb
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Newtonsoft.Json.pdb

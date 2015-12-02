@@ -44,8 +44,8 @@
     <Property Name="url" Type="varchar" MaxLength="50" />
     <Property Name="Icon" Type="varchar" MaxLength="50" />
     <Property Name="CreateTime" Type="datetime" Nullable="false" />
-    <Property Name="Area" Type="nchar" MaxLength="10" />
-    <Property Name="Contorll" Type="nchar" MaxLength="10" />
+    <Property Name="Area" Type="varchar" MaxLength="30" />
+    <Property Name="Contorll" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Opration">
     <Key>
@@ -80,6 +80,7 @@
     <Property Name="UpassWord" Type="varchar" MaxLength="50" />
     <Property Name="Uname" Type="varchar" MaxLength="20" />
     <Property Name="HeadPortraitUrl" Type="varchar" MaxLength="50" />
+    <Property Name="IsDelete" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_Fucntion_Menu_Fid">
     <End Role="Menu" Type="jurisdictionModel.Store.Menu" Multiplicity="1" />

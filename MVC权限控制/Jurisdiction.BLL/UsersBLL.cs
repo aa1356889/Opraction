@@ -14,9 +14,11 @@ namespace Jurisdiction.BLL
     
     public  class UsersBLL:BaseBLL<Users>,UsersIBLL
     {
+
+        UsersIDAL idal = null;
         public UsersBLL(UsersIDAL dal):base(dal){
-    
-    
+
+            idal = dal;
     
     
     
@@ -25,5 +27,10 @@ namespace Jurisdiction.BLL
     
     
     }
+
+        public bool BathDelete(string ids)
+        {
+          return  idal.BathDelete(ids);
+        }
     }
 }

@@ -1,10 +1,8 @@
 ﻿@{
     ViewBag.Title = "SetOpreaction";
 }
-@section css{
-    <link href="@BaseHelper.LoadResource("TableTree4J_V1.2RE/css/tabletree4j.css")" rel="stylesheet" />
-    <script src="@BaseHelper.LoadResource("TableTree4J_V1.2RE/TableTree4J.js")"></script>
-}
+    <link href="@WebHelper.ResourceUrlHelper.LoadResource("TableTree4J_V1.2RE/css/tabletree4j.css")" rel="stylesheet" />
+    <script src="@WebHelper.ResourceUrlHelper.LoadResource("TableTree4J_V1.2RE/TableTree4J.js")"></script>
 <ul class="breadcrumb">
 				<li>
 					<i class="icon-home"></i>
@@ -25,7 +23,6 @@
 						</a>
   </div>
 </div>
-@section jss{
     <script type="text/javascript">
 
         var gridTree;
@@ -122,4 +119,3 @@
             }
         })
     </script>
-}

@@ -1,0 +1,100 @@
+﻿@{
+    Layout = null;
+}
+
+<nav class="breadcrumb" style="min-height:50px!important"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 后台管理 <span class="c-gray en">&gt;</span> 菜单管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+
+<div class="row">
+  <div class="col-md-3">
+
+
+  </div>
+  <div class="col-md-9">
+      <form action="" method="post" class="form form-horizontal" id="form-article-add">
+		<div id="tab-system" class="HuiTab">
+			<div class="tabBar cl"><span>基本设置</span><span>安全设置</span></div>
+			<div class="tabCon">
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>网站名称：</label>
+					<div class="formControls col-10">
+						<input type="text" id="website-title" placeholder="控制在25个字、50个字节以内" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>关键词：</label>
+					<div class="formControls col-10">
+						<input type="text" id="website-Keywords" placeholder="5个左右,8汉字以内,用英文,隔开" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>描述：</label>
+					<div class="formControls col-10">
+						<input type="text" id="website-description" placeholder="空制在80个汉字，160个字符以内" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>css、js、images路径配置：</label>
+					<div class="formControls col-10">
+						<input type="text" id="website-static" placeholder="默认为空，为相对路径" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>上传目录配置：</label>
+					<div class="formControls col-10">
+						<input type="text" id="website-uploadfile" placeholder="默认为uploadfile" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>底部版权信息：</label>
+					<div class="formControls col-10">
+						<input type="text" id="website-copyright" placeholder="&copy; 2014 H-ui.net" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2">备案号：</label>
+					<div class="formControls col-10">
+						<input type="text" id="website-icp" placeholder="京ICP备00000000号" value="" class="input-text">
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2">统计代码：</label>
+					<div class="formControls col-10">
+						<textarea class="textarea"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="tabCon">
+				<div class="row cl">
+					<label class="form-label col-2">允许访问后台的IP列表：</label>
+					<div class="formControls col-10">
+						<textarea class="textarea"></textarea>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2">后台登录失败最大次数：</label>
+					<div class="formControls col-10">
+						<input type="text" id="" value="5" class="input-text">
+					</div>
+				</div>
+                </div>
+			</div>
+	</form>
+  </div>
+</div>
+
+
+
+
+@*   <div class="row-fluid">
+        <div class="span4">
+            sdfsdf
+            </div>
+       <div class="span8">
+	           sdfsd
+           </div>
+       </div>*@
+<script type="text/javascript">
+    $(function () {
+        $.Huitab("#tab-system .tabBar span", "#tab-system .tabCon", "current", "click", "0");
+    });
+</script>

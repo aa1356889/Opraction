@@ -14,11 +14,23 @@ namespace Jurisdiction.BLL
     
     public  class UserRoleBLL:BaseBLL<UserRole>,UserRoleIBLL
     {
+        UserRoleIDAL idbal = null;
         public UserRoleBLL(UserRoleIDAL dal):base(dal){
-    
+            idbal = dal;
     
     
     
     }
+
+        public bool ApplayRoles(int uid, string roleids)
+        {
+            return idbal.ApplayRoles(uid, roleids);
+        }
+
+
+        public bool BathDelete(string ids)
+        {
+          return  idbal.BathDelete(ids);
+        }
     }
 }

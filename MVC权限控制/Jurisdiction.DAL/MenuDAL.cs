@@ -14,17 +14,21 @@ namespace Jurisdiction.DAL
     
     public  class MenuDAL:DALBase<Menu>,IDAL.MenuIDAL
     {
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+        public bool BathDelete(string ids)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

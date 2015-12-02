@@ -39,7 +39,7 @@ namespace Jurisdiction.UI.Areas.Admin.Controllers
             ResponsPagingData responseData = new ResponsPagingData();
             int count=0;
            //查询所有角色信息
-            var roles = rolebll.QueryByPaging(requsetview.star, requsetview.length, c => true, c => c.Rid, ref count).ToList<Roles>().Select(c =>new{Rid=c.Rid,RName=c.RName });
+            var roles = rolebll.QueryByPaging(requsetview.start, requsetview.length, c => true, c => c.Rid, ref count).ToList<Roles>().Select(c =>new{Rid=c.Rid,RName=c.RName });
            responseData.data = roles;
            responseData.draw = requsetview.draw;
            responseData.recordsFiltered = count;

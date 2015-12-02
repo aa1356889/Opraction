@@ -70,6 +70,7 @@
     <Compile Include="RolesDAL.cs">
       <DependentUpon>Jurisdiction.tt</DependentUpon>
     </Compile>
+    <Compile Include="SqlHelper.cs" />
     <Compile Include="UserRoleDAL.cs">
       <DependentUpon>Jurisdiction.tt</DependentUpon>
     </Compile>

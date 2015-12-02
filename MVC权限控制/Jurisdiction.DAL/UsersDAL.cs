@@ -11,17 +11,28 @@ namespace Jurisdiction.DAL
 {
     using System;
     using System.Collections.Generic;using Jurisdiction.Entity;
+    using System.Data.SqlClient;
     
     public  class UsersDAL:DALBase<Users>,IDAL.UsersIDAL
     {
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+        public bool BathDelete(string ids)
+        {
+
+                //删除用户信息
+                List<SqlParameter> parameters = new List<SqlParameter>();
+                string parametesrStr = string.Empty;
+                SqlHelper.LoadSql(ids, ref parameters, ref parametesrStr);
+                string sql = string.Format("update Users set isdelete=1  where uid in({0})", parametesrStr);
+                return je.Database.ExecuteSqlCommand(sql,parameters.ToArray()) > 0;
+        }
     }
 }

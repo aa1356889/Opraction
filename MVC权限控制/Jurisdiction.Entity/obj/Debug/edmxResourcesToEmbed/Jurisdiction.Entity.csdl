@@ -51,8 +51,8 @@
     <Property Type="String" Name="url" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="Icon" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="3" />
-    <Property Type="String" Name="Area" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="Contorll" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Area" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Contorll" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="Opration">
     <Key>
@@ -94,6 +94,7 @@
     <NavigationProperty Name="UserRole" Relationship="jurisdictionModel.FK_UserRole_Users_Uid" FromRole="Users" ToRole="UserRole" />
     <Property Type="String" Name="LoginName" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="HeadPortraitUrl" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="IsDelete" Nullable="false" />
   </EntityType>
   <Association Name="FK_Fucntion_Menu_Fid">
     <End Role="Menu" Type="jurisdictionModel.Menu" Multiplicity="1" />

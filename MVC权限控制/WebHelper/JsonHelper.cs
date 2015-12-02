@@ -21,5 +21,10 @@ namespace WebHelper
        {
          return  new JavaScriptSerializer().Serialize(obj);
        }
+
+       public static T DeSerialize<T>(string str)
+       {
+           return new JavaScriptSerializer().Deserialize<T>(str);
+       }
     }
 }

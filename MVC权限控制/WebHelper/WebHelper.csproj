@@ -46,9 +46,11 @@
     <Compile Include="CaheManager.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="JsonHelper.cs" />
+    <Compile Include="keyS.cs" />
     <Compile Include="Kite.cs" />
     <Compile Include="MyFormsPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceUrlHelper.cs" />
     <Compile Include="UserTicke.cs" />
   </ItemGroup>
   <ItemGroup>

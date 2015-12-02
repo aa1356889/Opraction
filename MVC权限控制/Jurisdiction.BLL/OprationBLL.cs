@@ -53,5 +53,11 @@ namespace Jurisdiction.BLL
         {
             return ida.SetOpractionByRid(rid, opraction);
         }
+
+
+        public bool BathDelete(string ids)
+        {
+            return ida.BathDelete(ids);
+        }
     }
 }

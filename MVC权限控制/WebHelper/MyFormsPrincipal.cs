@@ -71,7 +71,7 @@ namespace WebHelper
            string cookieValue = FormsAuthentication.Encrypt(ticket);
            // 4. 根据加密结果创建登录Cookie
            HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, cookieValue);
-           cookie.HttpOnly = true;
+           cookie.HttpOnly =false;
            cookie.Secure = FormsAuthentication.RequireSSL;
            //cookie.Domain = FormsAuthentication.CookieDomain;
            cookie.Path = FormsAuthentication.FormsCookiePath;

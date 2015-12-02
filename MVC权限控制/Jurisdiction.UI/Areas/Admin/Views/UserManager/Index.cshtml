@@ -1,28 +1,27 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-
-<ul class="breadcrumb">
-				<li>
-					<i class="icon-home"></i>
-					<a href="index.html">后台管理</a> 
-				</li>
-				<li><a href="@Url.Action("Index","UserManager")">用户管理</a></li>
-			</ul>
+<script type="text/javascript" src="@WebHelper.ResourceUrlHelper.LoadResource("lib/icheck/jquery.icheck.min.js")"></script>
+<script type="text/javascript" src="@WebHelper.ResourceUrlHelper.LoadResource("lib/Validform/5.3.2/Validform.min.js")"></script>  
+<nav class="breadcrumb" style="min-height:50px!important"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 后台管理 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="container-fluid" style="margin-bottom:20px;">
   <div class="row">
     <div class="col-md-12">
-          @if (IsOpraction(ViewContext.RouteData.DataTokens["area"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), "AddUser"))
-          {
-        <button type="button" id="addRole" class="btn btn-default">添加用户</button>
-        }
+         
     </div>
   </div>
 </div>
-
+<div class="cl pd-5 bg-1 bk-gray"> 
+    <span class="l"> <a href="javascript:;"  id="delUser" class="btn btn-danger radius"><i class="Hui-iconfont"></i> 批量删除</a> 
+         @if (IsOpraction(ViewContext.RouteData.DataTokens["area"].ToString(), ViewContext.RouteData.Values["controller"].ToString(), "AddUser"))
+          {
+        <a class="btn btn-primary radius" href="javascript:;" id="addUser"><i class="Hui-iconfont"></i> 添加用户</a> 
+         }
+        </span>
+</div>
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
-            <tr>
+            <tr style="background-color: #f5fafe;">
                 <th><input type="checkbox" class="chek" /></th>
                 <th>编号</th>
                 <th>登陆名</th>
@@ -39,16 +38,72 @@
     </table>
 <div id="AddModel">
    <button type="button" id="OkAplay" class="btn btn-default">确认分配</button>
- <table  id="roles" class="table table-bordered">
+    <input type="hidden"  id="uid"/>
+ <table   class="table table-bordered">
+     <tbody id="roles">
+     <tr>
+         <td>编号</td>
+         <td>角色</td>
+     </tr>
+         </tbody>
 </table>
       
 </div>
-@section jss{
+<div id="AddUser">
+    <div class="pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-admin-add">
+		<div class="row cl">
+			<label class="form-label col-3"><span class="c-red">*</span>管理员：</label>
+			<div class="formControls col-5">
+				<input type="text" class="input-text Validform_error" value="" placeholder="" id="user-name" name="user-name" datatype="*2-16" nullmsg="用户名不能为空">
+			</div>
+			<div class="col-4"> <span class="Validform_checktip Validform_wrong">用户名不能为空</span></div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-3"><span class="c-red">*</span>初始密码：</label>
+			<div class="formControls col-5">
+				<input type="password" placeholder="密码" autocomplete="off" value="" class="input-text Validform_error" datatype="*6-20" nullmsg="密码不能为空">
+			</div>
+			<div class="col-4"> <span class="Validform_checktip Validform_wrong">密码不能为空</span></div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-3"><span class="c-red">*</span>确认密码：</label>
+			<div class="formControls col-5">
+				<input type="password" placeholder="确认新密码" autocomplete="off" class="input-text Validform_error" errormsg="您两次输入的新密码不一致！" datatype="*" nullmsg="请再输入一次新密码！" recheck="newpassword" id="newpassword2" name="newpassword2">
+			</div>
+			<div class="col-4"> <span class="Validform_checktip Validform_wrong">请再输入一次新密码！</span></div>
+		</div>
+		<div class="row cl">
+			<div class="col-9 col-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</div>
+</div>
+
 <script type="text/javascript">
-    var addUserModel=null;//添加角色的模态框
+    var ApplyRoleModel = null;//添加角色的模态框
+    var AddUsrMole = null;//添加用户模态框
     var datable=null;
     $(function () {
-        addUserModel = commObj.InitModal("AddModel", "分配角色", 600, 168)
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#form-admin-add").Validform({
+            tiptype: 2,
+            callback: function (form) {
+                form[0].submit();
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.$('.btn-refresh').click();
+                parent.layer.close(index);
+            }
+        });
+        ApplyRoleModel = commObj.InitModal("AddModel", "分配角色", 600, 600)
+        AddUsrMole = commObj.InitModal("AddUser", "添加用户", 600, 600)
         //渲染表格
         datable= commObj.LoadTable("#example",
             [
@@ -93,58 +148,83 @@
                 return d;
             }
             );
+        //添加用户的方法
+        $("#addUser").click(function (e) {
+            AddUsrMole.modal("show");
+       
+         })
+        //批量删除用户信息
+        $("#delUser").click(function () {
+            var uids=[];
+            $(".uid").each(function(){
+                uids.push($(this).val());
+            });
+            commObj.CommondAjaxPost("@Url.Action("DeleteUser")", { "ids": uids.join(",") }, function (ajaxObj) {
+                alert(ajaxObj.Message)
+                datable.ajax.reload();
+            }, function (ajaxObj) {
+                alert(ajaxObj.Message)
+            })
+        })
+     
+            //取消按钮事件
+            $("#CanckeUser").click(function () {
+                addUserModel.modal("hide");
+            })
+            //确认分配点击事件
+            $("#OkAplay").click(function () {
+                var uid = $("#uid").val();
+                //获得选中的角色信息
+                var roleids=[];
+                $("#roles input:checked").each(function(){
+                    roleids.push($(this).val());
+                })
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("AplayRole")",
+                    dataType: "json",
+                    data: { uid: uid, roleids: roleids.join(",") },
+                    success: function (ajaxObj) {
+                        var dataArr = [];
+                        if (ajaxObj.State == 0) {
+                            alert(ajaxObj.Message);
+                            addRoleModel.modal("hide");
+                        } else {
+                            alert(ajaxObj.Message);
+                        }
+                    }
+                });
+            })
     })
-    $("#addRole").click(function (e) {
-       var uid=$(this).attr("uid");
+    $("#example").delegate(".aplayRole", "click", function () {
+        var uid = $(this).attr("uid");
+        $("#uid").val(uid);
         $.ajax({
             type: "POST",
             url: "@Url.Action("GetRoles")",
-            dataType: "json",
-            data: { uid:uid },
-            success: function (ajaxObj) {
-                var dataArr = [];
-                if (ajaxObj.State == 0) {
-                    alert(ajaxObj.Message);
-                    datable.ajax.reload();
-                    addRoleModel.modal("hide");
-                } else {
-                    alert(ajaxObj.Message);
-                }
-            }
-        });
-        addUserModel.modal("show");
-       
-    })
-
-    $("#example").delegate(".aplayRole", "click", function () {
-        var uid = $(this).attr("uid");
-        if (rid) {
-            window.location = "@Url.Action("SetOpreaction")?rid=" + rid;
-        }
-      })
-    //取消按钮事件
-    $("#CanckeUser").click(function () {
-        addUserModel.modal("hide");
-    })
-    //确认添加点击事件
-    $("#OkAddUser").click(function () {
-        var roleName = $("#roleName").val();
-        $.ajax({
-            type: "POST",
-            url: "@Url.Action("AddRole")",
                 dataType: "json",
-                data: { roleName: roleName },
+                data: { uid: uid },
                 success: function (ajaxObj) {
                     var dataArr = [];
+                    console.log(ajaxObj.Datas.length);
                     if (ajaxObj.State == 0) {
-                        alert(ajaxObj.Message);
-                        datable.ajax.reload();
-                        addRoleModel.modal("hide");
+                        //清空之前
+                        $("#roles").children(":gt(0)").remove();
+                        for (var i = 0; i < ajaxObj.Datas.length; i++) {
+                            if (ajaxObj.Datas[i].IsCheck == true) {
+                                $("#roles").append("<tr><td><input type=\"checkbox\" checked=\"checked\" value=\"" + ajaxObj.Datas[i].Rid + "\"></td><td>" + ajaxObj.Datas[i].RName + "</td></tr>");
+                            } else {
+                                $("#roles").append("<tr><td><input type=\"checkbox\" value=\"" + ajaxObj.Datas[i].Rid + "\"></td><td>" + ajaxObj.Datas[i].RName + "</td></tr>");
+                            }
+                        
+                        }
+                        ApplyRoleModel.modal("show");
                     } else {
                         alert(ajaxObj.Message);
                     }
                 }
-         });
+            })
     })
+
 </script>
-    }
+    

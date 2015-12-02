@@ -2,16 +2,45 @@
 @using Jurisdiction.Entity
 @{
    //MenuIBLL menuBLll= Jurisdiction.UI.App_Start.AutofacRegister.Resove<MenuIBLL>();
-    List<Jurisdiction.Extend.OpractionsExtend> menus =base.Opracton .Where(c => c.ActionName == "浏览").Distinct().ToList<Jurisdiction.Extend.OpractionsExtend>();
+    List<Jurisdiction.Extend.OpractionsExtend> menus = base.Opracton.Where(c => c.ActionName == "浏览").ToList<Jurisdiction.Extend.OpractionsExtend>();
 }	
-
-<div id="sidebar-left" class="span2">
+<aside class="Hui-aside">
+	<input runat="server" id="divScrollValue" type="hidden" value="" />
+	<div class="menu_dropdown bk_2">
+	
+            @{
+                foreach (var item in menus)
+                {
+                    if(item.PrentId==-1){
+                        	<dl id="menu-product">
+                        <dt><i class="Hui-iconfont">&#xe620;</i> @item.MName<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+                       <dd>
+				         <ul>
+                             @{
+                        foreach (var son in menus)
+                        {
+                            if(item.Mid==son.PrentId){
+                                <li><a _href="@(son.Murl)" href="javascript:void(0)">@son.MName</a></li>
+                            }
+                        }
+                             }
+                    	</ul>
+			          </dd>
+                           </dl>
+                    }
+                }
+            }
+			
+		
+	</div>
+</aside>
+@*<div id="sidebar-left" class="span2">
 				<div class="nav-collapse sidebar-nav">
                         @(new MvcHtmlString("<ul class=\"nav nav-tabs nav-stacked main-menu\">"))
                         @LoadMenu(-1, menus);
                       @(new MvcHtmlString("<ul>"))
 				</div>
-			</div>
+			</div>*@
 
 @*递归生成菜单树*@
 @helper LoadMenu(int id, List<Jurisdiction.Extend.OpractionsExtend> menu)

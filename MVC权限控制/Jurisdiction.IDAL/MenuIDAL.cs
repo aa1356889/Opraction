@@ -14,11 +14,17 @@ namespace Jurisdiction.IDAL
     
     public  interface MenuIDAL:IBaseDAL<Menu>
     {
-    
-    
-    
-    
-      
+
+
+
+
+
+        /// <summary>
+        /// 根据id删除数据 多个用,号分割
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        bool BathDelete(string ids);
     
     
     

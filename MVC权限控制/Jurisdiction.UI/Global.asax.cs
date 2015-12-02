@@ -34,5 +34,15 @@ namespace Jurisdiction.UI
             //DependencyResolver.SetResolver(new AutofacDependencyResolver(container));//普通的MVC Contr
             
         }
+
+        protected void Session_Start(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Session_End(object sender, EventArgs e)
+        {
+
+        }  
     }
 }

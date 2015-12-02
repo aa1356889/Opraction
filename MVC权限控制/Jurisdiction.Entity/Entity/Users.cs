@@ -23,6 +23,7 @@ namespace Jurisdiction.EntityView
         public string Uname { get; set; }
         public string LoginName { get; set; }
         public string HeadPortraitUrl { get; set; }
+        public int IsDelete { get; set; }
     
       
     }

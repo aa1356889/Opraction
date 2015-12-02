@@ -33,12 +33,15 @@
             ordering: false,//排序操作在服务端进行，所以可以关了。
             language: language,
             columns: Columns,
-            columnDefs:columnDefs,
+            columnDefs: columnDefs,
+            bServerSide:true,
             ajax: {
                 type: "post",
                 url: url,
                 data: setDataCallBack
             }
+            ,
+            dom: "<bottom iprl>"
 
         })
         return aa;
@@ -48,10 +51,10 @@
             top = 10;
         }
         if (!left) {
-            left = 50;
+            left = 0;
         }
         var html = "<div class=\"modal-dialog  modal fade \" role=\"document\"  tabindex=\"-1\" role=\"dialog\"  id=\"myModal" + commObj.index + "\"  style=\"top:" + top + "%; left:" + left + "%; max-width:" + width + "px; position:absolute;max-height:" + height + "px;\">" +
-    "<div class=\"modal-content\">" +
+    "<div class=\"modal-content\" style=\"height:"+height+"px\">" +
       "<div class=\"modal-header\">"+
       "<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>" +
       "<h4 class=\"modal-title\" id=\"myModalLabel" + commObj.index + "\">" + title + "</h4>" +
@@ -68,6 +71,32 @@
       commObj.index++;
 
       return model;
+    }, ShowCurrentEdit: function picture_edit(title, url, id) {
+        var index = layer.open({
+            type: 2,
+            title: title,
+            content: url
+        });
+        layer.full(index);
+    }, CommondAjaxPost: function (url, parameters, ProcessOkCall, ProcessNodeCallBack) {
+        $.ajax({
+            type: "POST",
+            url:url,
+            dataType: "json",
+            data: parameters,
+        success: function (ajaxObj) {
+            var dataArr = [];
+            if (ajaxObj.State == 0) {
+                if (ProcessOkCall) {
+                    ProcessOkCall(ajaxObj);
+                }
+            } else {
+                if (ProcessNodeCallBack) {
+                    ProcessNodeCallBack(ajaxObj);
+                }
+            }
+        }
+    })
     }
 
 };

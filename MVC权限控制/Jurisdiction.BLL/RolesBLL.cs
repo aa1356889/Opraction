@@ -14,13 +14,19 @@ namespace Jurisdiction.BLL
     
     public  class RolesBLL:BaseBLL<Roles>,RolesIBLL
     {
+        RolesIDAL idal = null;
         public RolesBLL(RolesIDAL dal):base(dal){
-    
+            this.idal = dal;
     
     
     
     
     
     }
+
+        public bool BathDelete(string ids)
+        {
+           return  idal.BathDelete(ids);
+        }
     }
 }

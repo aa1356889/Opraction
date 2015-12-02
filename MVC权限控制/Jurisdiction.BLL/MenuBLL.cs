@@ -14,9 +14,10 @@ namespace Jurisdiction.BLL
 
     public class MenuBLL : BaseBLL<Jurisdiction.Entity.Menu>, MenuIBLL
     {
+        public MenuIDAL dal = null;
         public MenuBLL(MenuIDAL dal):base(dal){
-    
-    
+
+            this.dal = dal;
     
     
     
@@ -28,5 +29,10 @@ namespace Jurisdiction.BLL
     
     
     }
+
+        public bool BathDelete(string ids)
+        {
+         return   dal.BathDelete(ids);
+        }
     }
 }

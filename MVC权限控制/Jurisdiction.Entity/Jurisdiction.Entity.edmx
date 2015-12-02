@@ -49,8 +49,8 @@
           <Property Name="url" Type="varchar" MaxLength="50" />
           <Property Name="Icon" Type="varchar" MaxLength="50" />
           <Property Name="CreateTime" Type="datetime" Nullable="false" />
-          <Property Name="Area" Type="nchar" MaxLength="10" />
-          <Property Name="Contorll" Type="nchar" MaxLength="10" />
+          <Property Name="Area" Type="varchar" MaxLength="30" />
+          <Property Name="Contorll" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Opration">
           <Key>
@@ -85,6 +85,7 @@
           <Property Name="UpassWord" Type="varchar" MaxLength="50" />
           <Property Name="Uname" Type="varchar" MaxLength="20" />
           <Property Name="HeadPortraitUrl" Type="varchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Fucntion_Menu_Fid">
           <End Role="Menu" Type="jurisdictionModel.Store.Menu" Multiplicity="1" />
@@ -189,8 +190,8 @@
           <Property Type="String" Name="url" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Icon" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="CreateTime" Nullable="false" Precision="3" />
-          <Property Type="String" Name="Area" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Contorll" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="Area" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Contorll" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Opration">
           <Key>
@@ -232,6 +233,7 @@
           <NavigationProperty Name="UserRole" Relationship="jurisdictionModel.FK_UserRole_Users_Uid" FromRole="Users" ToRole="UserRole" />
           <Property Type="String" Name="LoginName" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="HeadPortraitUrl" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="IsDelete" Nullable="false" />
         </EntityType>
         <Association Name="FK_Fucntion_Menu_Fid">
           <End Role="Menu" Type="jurisdictionModel.Menu" Multiplicity="1" />
@@ -355,6 +357,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="jurisdictionModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
                 <ScalarProperty Name="HeadPortraitUrl" ColumnName="HeadPortraitUrl" />
                 <ScalarProperty Name="LoginName" ColumnName="LoginName" />
                 <ScalarProperty Name="uid" ColumnName="uid" />

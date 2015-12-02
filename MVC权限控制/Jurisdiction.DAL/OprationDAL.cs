@@ -28,7 +28,7 @@ namespace Jurisdiction.DAL
                         join f in je.Function on o.Fid equals f.Fid
                         join ur in je.UserRole on o.Roid equals ur.Roid
                         where ur.Uid == uid
-                        select new OpractionsExtend() { Mares = m.Area, MContorll = m.Contorll, Action = f.Action, ActionName = f.Fname, MIco = m.Icon, Mid = m.Mid, MName = m.MName, Murl = m.url, PrentId = m.ParentId, Roid = o.Roid }).ToList<OpractionsExtend>();
+                        select new OpractionsExtend() { Mares = m.Area, MContorll = m.Contorll, Action = f.Action, ActionName = f.Fname, MIco = m.Icon, Mid = m.Mid, MName = m.MName, Murl = m.url, PrentId = m.ParentId}).Distinct().ToList<OpractionsExtend>();
             return list;
         }
 
@@ -96,6 +96,12 @@ namespace Jurisdiction.DAL
                 }
 
             }
+        }
+
+
+        public bool BathDelete(string ids)
+        {
+            throw new NotImplementedException();
         }
     }
 }

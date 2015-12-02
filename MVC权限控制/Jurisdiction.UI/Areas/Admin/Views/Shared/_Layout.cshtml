@@ -12,13 +12,14 @@
 	<!-- start: Mobile Specific -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- end: Mobile Specific -->
-	
+@*		<link href="@BaseHelper.LoadResource("/css/H-ui.min.css")" rel="stylesheet" type="text/css" />
+<link href="@BaseHelper.LoadResource("/css/H-ui.admin.css")" rel="stylesheet" type="text/css" />
+<link href="@BaseHelper.LoadResource("/skin/default/skin.css")" rel="stylesheet" type="text/css"  />
+<link href="@BaseHelper.LoadResource("/lib/Hui-iconfont/1.0.1/iconfont.css")" rel="stylesheet" type="text/css" />
     <link id="bootstrap2-style" href="@BaseHelper.LoadResource("/bootstrap/css/bootstrap.min.css")" rel="stylesheet">
-    <link id="bootstrap-style" href="@BaseHelper.LoadResource("css/bootstrap.min.css")" rel="stylesheet">
-	<link href="@BaseHelper.LoadResource("/css/bootstrap-responsive.min.css")" rel="stylesheet">
-	<link id="base-style" href="@BaseHelper.LoadResource("/css/style.css")" rel="stylesheet">
-	<link id="base-style-responsive" href="@BaseHelper.LoadResource("/css/style-responsive.css")" rel="stylesheet">
-      <link href="@BaseHelper.LoadResource("/DataTables-1.10.8/media/css/dataTables.bootstrap.css")" rel="stylesheet" />
+    
+
+      <link href="@BaseHelper.LoadResource("/DataTables-1.10.8/media/css/dataTables.bootstrap.css")" rel="stylesheet" />*@
     @RenderSection("css", false)
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -76,6 +77,7 @@
 			
 			<!-- start: Content -->
 			<div id="content" class="span10">
+
 			@RenderBody()
 			
 		
@@ -103,61 +105,18 @@
 </html>
 
 
-	<script src="@BaseHelper.LoadResource("/js/jquery-1.9.1.min.js")"></script>
+@*	<script src="@BaseHelper.LoadResource("/js/jquery-1.9.1.min.js")"></script>
 
    <script src="@BaseHelper.LoadResource("/js/bootstrap.min.js")"></script>
-   @*<script src="~/AdminResource/bootstrap/js/bootstrap.js"></script>*@
   <script src="@BaseHelper.LoadResource("/DataTables-1.10.8/media/js/jquery.dataTables.min.js")"></script>
     <script src="@BaseHelper.LoadResource("/DataTables-1.10.8/media/js/dataTables.bootstrap.js")"></script>
-	<script src="@BaseHelper.LoadResource("js/jquery-migrate-1.0.0.min.js")"></script>
 	    <script src="@BaseHelper.LoadAreasResouce("/js/CommonJs.js")"></script>
-		<script src="@BaseHelper.LoadResource("js/jquery-ui-1.10.0.custom.min.js")"></script>
+<script type="text/javascript" src="@BaseHelper.LoadResource("lib/layer/1.9.3/layer.js")"></script> 
+<script type="text/javascript" src="@BaseHelper.LoadResource("js/H-ui.js")"></script> 
+<script type="text/javascript" src="@BaseHelper.LoadResource("js/H-ui.admin.js")"></script> *@
 	
-		<script src="@BaseHelper.LoadResource("js/jquery.ui.touch-punch.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/modernizr.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.cookie.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/fullcalendar.min.js")"></script>
 	
 
-		<script src="@BaseHelper.LoadResource("js/excanvas.js")"></script>
-	<script src="@BaseHelper.LoadResource("js/jquery.flot.js")"></script>
-	<script src="@BaseHelper.LoadResource("js/jquery.flot.pie.js")"></script>
-	<script src="@BaseHelper.LoadResource("js/jquery.flot.stack.js")"></script>
-	<script src="@BaseHelper.LoadResource("js/jquery.flot.resize.min.js")"></script>
 
-		<script src="@BaseHelper.LoadResource("js/jquery.chosen.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.uniform.min.js")"></script>
-		
-		<script src="@BaseHelper.LoadResource("js/jquery.cleditor.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.noty.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.elfinder.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.raty.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.iphone.toggle.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.uploadify-3.1.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.gritter.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.imagesloaded.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.masonry.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.knob.modified.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/jquery.sparkline.min.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/counter.js")"></script>
-	
-		<script src="@BaseHelper.LoadResource("js/retina.js")"></script>
-
-		<script src="@BaseHelper.LoadResource("js/custom.js")"></script>
 @RenderSection("jss", false)
 

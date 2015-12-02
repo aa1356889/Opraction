@@ -14,13 +14,20 @@ namespace Jurisdiction.BLL
     
     public  class FunctionBLL:BaseBLL<Function>,FunctionIBLL
     {
+
+        FunctionIDAL dal = null;
         public FunctionBLL(FunctionIDAL dal):base(dal){
-    
-    
+
+            this.dal = dal;
     
     
     
     
     }
+
+        public bool BathDelete(string ids)
+        {
+          return  dal.BathDelete(ids);
+        }
     }
 }

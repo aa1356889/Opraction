@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "我的工作台";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -10,34 +11,26 @@
 				</li>
 				<li><a href="@Url.Action("Index","Workbench")">我的工作台</a></li>
 			</ul>
-<button class="btn btn-primary noty" data-noty-options="{&quot;text&quot;:&quot;This is an alert notification with fade effect&quot;,&quot;layout&quot;:&quot;center&quot;,&quot;type&quot;:&quot;alert&quot;,&quot;animateOpen&quot;: {&quot;opacity&quot;: &quot;show&quot;}}"><i class="halflings-icon white bell"></i> Center (fade)</button>
-<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>编号</th>
-                <th>角色名</th>
+<div class="dislpayArrow"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+<section class="Hui-article-box">
+	<div id="Hui-tabNav" class="Hui-tabNav">
+		<div class="Hui-tabNav-wp">
+			<ul id="min_title_list" class="acrossTab cl">
+				<li class="active"><span title="我的桌面" data-href=@Url.Action("MyWorkbench")">我的工作台</span><em></em></li>
+			</ul>
+		</div>
+		<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+	</div>
+	<div id="iframe_box" class="Hui-article">
+		<div class="show_iframe">
+			<div style="display:none" class="loading"></div>
+			<iframe scrolling="yes" frameborder="0" src="@Url.Action("MyWorkbench")"></iframe>
+		</div>
+	</div>
+</section>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-            </tr>
-          
-        </tbody>
-    </table>
 @section jss{
 <script type="text/javascript">
-    $(function () {
-        //$('#example').DataTable();
-        commObj.LoadTable("#example",
-            [
-                null,
-                null
-        ]
-        );
-    })
 
 
 </script>

@@ -18,7 +18,7 @@ namespace Jurisdiction.UI.Areas.Model
         /// <summary>
         /// 开始下标
         /// </summary>
-        public int star { get; set; }
+        public int start { get; set; }
 
 
         /// <summary>

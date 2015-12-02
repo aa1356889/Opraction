@@ -56,6 +56,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="jurisdictionModel.Users">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
           <ScalarProperty Name="HeadPortraitUrl" ColumnName="HeadPortraitUrl" />
           <ScalarProperty Name="LoginName" ColumnName="LoginName" />
           <ScalarProperty Name="uid" ColumnName="uid" />
