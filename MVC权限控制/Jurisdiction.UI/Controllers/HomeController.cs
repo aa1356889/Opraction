@@ -20,7 +20,7 @@ namespace Jurisdiction.UI.Controllers
         public ActionResult Index()
         {
 
-            return View();
+            return Redirect(Url.Action("Index","Login",new{area="Admin"}));
         }
 
     }

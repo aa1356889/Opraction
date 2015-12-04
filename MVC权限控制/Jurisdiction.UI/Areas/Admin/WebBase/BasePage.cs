@@ -133,5 +133,13 @@ namespace Jurisdiction.UI.Areas.Admin.WebBase
             var list = Opracton.Where(c => string.Compare(areaName, c.Mares, true) == 0 && string.Compare(controllerName, c.MContorll, true) == 0 && string.Compare(action, c.Action, true) == 0).ToList<OpractionsExtend>();
             return list.Count > 0;
         }
+
+        public bool IsOpraction(string action)
+        {
+            string areaName = ViewContext.RouteData.DataTokens["area"].ToString();
+            string controllerName = ViewContext.RouteData.Values["controller"].ToString();
+            var list = Opracton.Where(c => string.Compare(areaName, c.Mares, true) == 0 && string.Compare(controllerName, c.MContorll, true) == 0 && string.Compare(action, c.Action, true) == 0).ToList<OpractionsExtend>();
+            return list.Count > 0;
+        }
     }
 }

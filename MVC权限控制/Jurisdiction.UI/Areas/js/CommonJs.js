@@ -91,12 +91,17 @@
                     ProcessOkCall(ajaxObj);
                 }
             } else {
+                layer.msg(ajaxObj.Message, { icon: 5, time: 1000 });
                 if (ProcessNodeCallBack) {
                     ProcessNodeCallBack(ajaxObj);
                 }
             }
         }
     })
+    }, ShowError: function (message) {
+        layer.msg(message, { icon: 5, time: 4000 });
+    }, ShowOk: function (message) {
+        layer.msg(message, { icon: 6, time: 4000 });
     }
 
 };

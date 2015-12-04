@@ -1,100 +1,379 @@
 ﻿@{
     Layout = null;
 }
-
+<style type="text/css">
+  .tree {
+    min-height:20px;
+    padding:19px;
+    margin-bottom:20px;
+    background-color:#fbfbfb;
+    border:1px solid #999;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+.tree li {
+    list-style-type:none;
+    margin:0;
+    padding:10px 5px 0 5px;
+    position:relative
+}
+.tree li::before, .tree li::after {
+    content:'';
+    left:-20px;
+    position:absolute;
+    right:auto
+}
+.tree li::before {
+    border-left:1px solid #999;
+    bottom:50px;
+    height:100%;
+    top:0;
+    width:1px
+}
+.tree li::after {
+    border-top:1px solid #999;
+    height:20px;
+    top:25px;
+    width:25px
+}
+.tree li span {
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border:1px solid #999;
+    border-radius:5px;
+    display:inline-block;
+    padding:3px 8px;
+    text-decoration:none
+}
+.tree li.parent_li>span {
+    cursor:pointer
+}
+.tree>ul>li::before, .tree>ul>li::after {
+    border:0
+}
+.tree li:last-child::before {
+    height:30px
+}
+.tree li.parent_li>span:hover, .tree li.parent_li>span:hover+ul li span {
+    background:#eee;
+    border:1px solid #94a0b4;
+    color:#000
+}
+    .node {
+        cursor:pointer;
+    }
+</style>
+<script type="text/javascript" src="@WebHelper.ResourceUrlHelper.LoadResource("lib/icheck/jquery.icheck.min.js")"></script>
+<script type="text/javascript" src="@WebHelper.ResourceUrlHelper.LoadResource("lib/Validform/5.3.2/Validform.min.js")"></script>  
 <nav class="breadcrumb" style="min-height:50px!important"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 后台管理 <span class="c-gray en">&gt;</span> 菜单管理 <a class="btn btn-success radius r mr-20" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 
 <div class="row">
-  <div class="col-md-3">
-
-
+  <div class="col-md-4">
+	<div class="tree well" id="tree" style="height:100%">
+     @* 树控件位置*@
+</div>
   </div>
-  <div class="col-md-9">
-      <form action="" method="post" class="form form-horizontal" id="form-article-add">
+  <div class="col-md-8">
+    
 		<div id="tab-system" class="HuiTab">
-			<div class="tabBar cl"><span>基本设置</span><span>安全设置</span></div>
+			<div class="tabBar cl"><span>编辑菜单</span><span class="setOpraction">权限设置</span></div>
 			<div class="tabCon">
+                  <form action="" method="post" class="form form-horizontal" id="form-admin-add">
+                   <input  name="Mid" type="hidden" id="Mid"/>
 				<div class="row cl">
-					<label class="form-label col-2"><span class="c-red">*</span>网站名称：</label>
+					<label class="form-label col-2"><span class="c-red">*</span>菜单名称：</label>
+					<div class="formControls col-6">
+						<input type="text"  name="MName" id="MName"  datatype="*2-16" nullmsg="菜单名字不能为空" placeholder="控制在5个字、10个字节以内" value="" class="input-text">
+					</div>
+                    <div class="col-4"> </div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>区域：</label>
+					<div class="formControls col-6">
+						<input type="text"  id="Area" name="Area" placeholder=""  value="" class="input-text">
+					</div>
+                      <div class="col-4"> </div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>控制器：</label>
 					<div class="formControls col-10">
-						<input type="text" id="website-title" placeholder="控制在25个字、50个字节以内" value="" class="input-text">
+						<input type="text" id="Contorll" name="Contorll" placeholder="" value="" class="input-text">
+					</div>
+				</div>
+                      <div class="row cl">
+					<label class="form-label col-2"><span class="c-red">*</span>Icon：</label>
+					<div class="formControls col-10">
+						<input type="text" id="Icon" name="Icon"  value="" class="input-text">
 					</div>
 				</div>
 				<div class="row cl">
-					<label class="form-label col-2"><span class="c-red">*</span>关键词：</label>
+					<label class="form-label col-2"><span class="c-red">*</span>Url：</label>
 					<div class="formControls col-10">
-						<input type="text" id="website-Keywords" placeholder="5个左右,8汉字以内,用英文,隔开" value="" class="input-text">
+						<input type="text" id="Url" name="Url"  placeholder="当前菜单指向首页" value="" class="input-text">
 					</div>
 				</div>
-				<div class="row cl">
-					<label class="form-label col-2"><span class="c-red">*</span>描述：</label>
-					<div class="formControls col-10">
-						<input type="text" id="website-description" placeholder="空制在80个汉字，160个字符以内" value="" class="input-text">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-2"><span class="c-red">*</span>css、js、images路径配置：</label>
-					<div class="formControls col-10">
-						<input type="text" id="website-static" placeholder="默认为空，为相对路径" value="" class="input-text">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-2"><span class="c-red">*</span>上传目录配置：</label>
-					<div class="formControls col-10">
-						<input type="text" id="website-uploadfile" placeholder="默认为uploadfile" value="" class="input-text">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-2"><span class="c-red">*</span>底部版权信息：</label>
-					<div class="formControls col-10">
-						<input type="text" id="website-copyright" placeholder="&copy; 2014 H-ui.net" value="" class="input-text">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-2">备案号：</label>
-					<div class="formControls col-10">
-						<input type="text" id="website-icp" placeholder="京ICP备00000000号" value="" class="input-text">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-2">统计代码：</label>
-					<div class="formControls col-10">
-						<textarea class="textarea"></textarea>
-					</div>
-				</div>
+                <div class="row cl">
+			<div class="col-10 col-offset-2">
+				<button onclick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont"></i> 保存</button>
+				<button onclick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;重置&nbsp;&nbsp;</button>
 			</div>
-			<div class="tabCon">
-				<div class="row cl">
-					<label class="form-label col-2">允许访问后台的IP列表：</label>
-					<div class="formControls col-10">
-						<textarea class="textarea"></textarea>
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-2">后台登录失败最大次数：</label>
-					<div class="formControls col-10">
-						<input type="text" id="" value="5" class="input-text">
-					</div>
-				</div>
-                </div>
+                   
+		</div>
+                      </form>
 			</div>
-	</form>
+			<div class="tabCon" >
+                <div class="cl pd-5 bg-1 bk-gray"> 
+               <span class="l"> <a href="javascript:;"  id="delUser" class="btn btn-danger radius"><i class="Hui-iconfont"></i> 批量删除</a> 
+                 @if (IsOpraction("AddOpraction")){
+               <a class="btn btn-primary radius" href="javascript:;" id="addOpraction"><i class="Hui-iconfont"></i> 添加权限</a> 
+                 }
+          </span>
+</div>
+				<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr style="background-color: #f5fafe;">
+                <th><input type="checkbox" class="chek" /></th>
+                <th>编号</th>
+                <th>功能名字</th>
+                <th>action</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+          
+        </tbody>
+    </table>
+			</div>
+	
   </div>
 </div>
 
-
-
-
-@*   <div class="row-fluid">
-        <div class="span4">
-            sdfsdf
-            </div>
-       <div class="span8">
-	           sdfsd
-           </div>
-       </div>*@
+ <div id="editOpraction">
+       <div class="pd-20">
+	<form action="" method="post" class="form form-horizontal" id="form-Opraction-add">
+		<div class="row cl">
+            <input type="hidden"  value="" name="Mid" id="funMid" />
+            <input type="hidden"  value="" name="Fid" id="Fid"/>
+			<label class="form-label col-3"><span class="c-red">*</span>功能名字：</label>
+			<div class="formControls col-5">
+				<input type="text" class="input-text" value="" placeholder="" id="fname" name="fname"  datatype="*2-16" nullmsg="功能名字不能为空">
+			</div>
+			<div class="col-4"> <span class="Validform_checktip"></span></div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-3"><span class="c-red">*</span>action：</label>
+			<div class="formControls col-5">
+				<input type="text" placeholder="" name="action" id="action" autocomplete="off" value="" class="input-text" datatype="*4-20" nullmsg="对应action不能为空">
+			</div>
+			<div class="col-4"> <span class="Validform_checktip "></span></div>
+		</div>
+		<div class="row cl">
+			<div class="col-9 col-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</div>
+		</div>
+	</form>
+</div>
+ </div>
 <script type="text/javascript">
+    var datable;
+    var EditOpractionModel = null;//编辑权限的模态框
+    //这个方法只是用来做个掩护,没有这个掩护是不行的!  
+    function mySubmit(flag) {
+        return flag;
+    }
     $(function () {
+        EditOpractionModel = commObj.InitModal("editOpraction", "编辑权限", 600, 400).on("hide.bs.modal", function () {
+            $("#form-Opraction-add")[0].reset();
+            $("#form-Opraction-add").find("input[type='hidden']").val("");
+            
+        })
+        LoadMenuInfo();
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+
+        $("#form-Opraction-add").Validform({
+            tiptype: 2,
+            callback: function (form) {
+                var data = $(form).serialize();
+                var url = "@Url.Action("AddOpraction")";
+                //改为指向编辑
+                if ($("#Fid").val()) {
+                     url = "@Url.Action("EditOpraction")";
+                }
+                commObj.CommondAjaxPost(url, data, function (ajaxObj) {
+                    commObj.ShowOk(ajaxObj.Message);
+                    datable.ajax.reload();
+                    EditOpractionModel.modal("hide");
+                })
+
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.$('.btn-refresh').click();
+                parent.layer.close(index);
+                return mySubmit(false);
+            }
+        });
+    
         $.Huitab("#tab-system .tabBar span", "#tab-system .tabCon", "current", "click", "0");
+        $(".SetOpraction").click(function () {
+            if (oldSelNode) {
+                InintTable();
+            }
+        })
+        //为添加权限按钮绑定事件
+        $("#addOpraction").click(function () {
+            if (!SelNode) {
+                commObj.ShowError("还没有选取菜单哟");
+                return;
+            }
+            $("#Mid").val(SelNode.attr("Mid"))
+            $("#form-Opraction-add").find("input").blur();
+            EditOpractionModel.modal("show");
+        })
+    });
+    var Menus = null;//菜单数据
+
+    var oldSelNode;//上一次绑定节点
+    var SelNode;//当前选中节点
+    function InintTable() {
+        if (!datable) {
+            //渲染表格
+            datable = commObj.LoadTable("#example",
+                [
+                    { "data": null },
+                      { "data": "Fid" },
+                    { "data": "Fname" },
+                    { "data": "Action" },
+                    { "data": null },
+                ],
+                [
+                    {
+                        "targets": 0,
+                        "render": function (data, type, full, meta) {
+                            return "<input type=\"checkbox\" class='roid' value='" + data.Fid + "'>";
+                        }
+                    },
+                 {
+                     "targets": 4,
+                     "render": function (data, type, full, meta) {
+                         return "<a style=\"text-decoration:none\" class=\"ml-5 eidtOpraction\"  href=\"javascript:\" fid=\""+data.Fid+"\" title=\"编辑\"><i class=\"Hui-iconfont\"></i></a>  <a style=\"text-decoration:none\" class=\"ml-5\" onclick=\"\" href=\"javascript:;\" title=\"删除\"><i class=\"Hui-iconfont\"></i></a>";
+                     }
+                 }
+                ],
+            "@Url.Action("GetFunctions")",
+                    function (d) {
+                        if (SelNode) {
+                            d.mid = SelNode.attr("mid");
+                        } else {
+                            d.mid = 2;
+                        }
+                    }
+                    );
+                    } else {
+                        datable.ajax.reload();
+                    }
+    }
+
+    //加载菜单信息
+    function LoadMenuInfo() {
+        commObj.CommondAjaxPost("@Url.Action("GetMenus")", "", function (ajaxObj) {
+            window.Menus = ajaxObj.Datas;
+            ajaxObj.Datas.push({ Mid: -1, ParentId: -2, MName: "系统菜单" })
+            $ul = $("<ul></ul>")
+            InitMenu($ul, -2, ajaxObj.Datas);
+            $("#tree").append($ul);
+            
+            MenuBindEvent();
+        })
+
+    }
+
+    function InitMenu(node, id, datas) {
+        for (var i in datas) {
+            if (datas[i].ParentId == id) {      
+                var $li = $("<li  ><span><i class=\"glyphicon glyphicon-folder-open\">" + datas[i].MName + "</span></li>");
+                if (id != -2) {
+                    $li = $("<li style=\"display:none;\"> <span class='node' mid="+datas[i].Mid+" ><i class=\"glyphicon glyphicon-plus-sign\"></i>" + datas[i].MName + "</span></li>");
+                }
+              
+                InitMenu($li, datas[i].Mid, datas);
+                if (id != -2) {
+                    if ($li.children("ul")) {
+                        console.log($li.html());
+                    }
+                    node.append($("<ul></ul>").append($li));
+                } else {
+                  
+                    node.append($li);
+                }
+            }
+        }
+    }
+  
+
+    //根据id查询菜单对象
+    function GetMenuBYid(id) {
+        for (var i in Menus) {
+            if (Menus[i].Mid == id) {
+                return Menus[i];
+            }
+        }
+    }
+    //为菜单绑定动画事件
+    function MenuBindEvent() {
+        $.Huitab("#tab-system .tabBar i", "#tab-system .tabCon", "current", "click", "0");
+        $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+        $('.tree li.parent_li  i').on('click', function (e) {
+            var children = $(this).parent().parent('li.parent_li').find(' > ul > li');
+            if (children.is(":visible")) {
+                children.hide('fast');
+                $(this).parent().attr('title', 'Expand this branch').find(' > i').addClass('glyphicon-plus-sign').removeClass('glyphicon-minus-sign');
+            } else {
+                children.show('fast');
+                $(this).parent().attr('title', 'Collapse this branch').find(' > i').addClass('glyphicon-minus-sign').removeClass('glyphicon-plus-sign');
+            }
+            e.stopPropagation();
+        });
+    }
+    $("#tree").delegate(".node", "click", function (e) {
+        if (oldSelNode) {
+            oldSelNode.css("background-color", "white")
+        }
+        SelNode = $(this);
+        oldSelNode = $(this).css("background-color", "93ca6d");
+        InintTable();
+        var mid = $(this).attr("Mid");
+        var menu = GetMenuBYid(mid);
+        console.log(menu);
+        if (menu) {
+            $("#MName").val(menu.MName);
+            $("#Area").val(menu.Area);
+            $("#Contorll").val(menu.Contorll);
+            $("#Icon").val(menu.Icon);
+            $("#Url").val(menu.url);
+            $("#Mid").val(menu.Mid);
+            $("#funMid").val(menu.Mid)
+        }
+
+
+        e.stopPropagation();
+    })
+    $("#example").delegate(".eidtOpraction", "click", function () {
+        var fid = $(this).attr("fid");
+        var functin = datable.row($(this).parent().parent()).data();
+        console.log(functin);
+        $("#Fid").val(functin.Fid);
+        $("#fname").val(functin.Fname);
+        $("#action").val(functin.Action);
+        EditOpractionModel.modal("show");
+        $("#form-Opraction-add").find("input").blur();
     });
 </script>

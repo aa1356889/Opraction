@@ -139,6 +139,7 @@
     <Compile Include="Areas\Admin\Controllers\RoleManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\WorkbenchController.cs" />
+    <Compile Include="Areas\Admin\Models\Menu\MenuRequestView.cs" />
     <Compile Include="Areas\Admin\WebBase\BaseHelper.cs" />
     <Compile Include="Areas\Admin\WebBase\BasePage.cs" />
     <Compile Include="Areas\Filter\AdminIdentityVerify.cs" />
@@ -162,6 +163,9 @@
     <Content Include="AdminResource\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="AdminResource\bootstrap\css\bootstrap.css" />
     <Content Include="AdminResource\bootstrap\css\bootstrap.min.css" />
+    <Content Include="AdminResource\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="AdminResource\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="AdminResource\bootstrap\img\glyphicons-halflings.png" />
     <Content Include="AdminResource\bootstrap\js\bootstrap.js" />
     <Content Include="AdminResource\bootstrap\js\bootstrap.min.js" />
     <Content Include="AdminResource\bootstrap\js\npm.js" />
@@ -638,8 +642,6 @@
     <Content Include="AdminResource\DataTables-1.10.8\media\js\jquery.dataTables.js" />
     <Content Include="AdminResource\DataTables-1.10.8\media\js\jquery.dataTables.min.js" />
     <Content Include="AdminResource\DataTables-1.10.8\media\js\jquery.js" />
-    <Content Include="AdminResource\font\glyphicons-regular.svg" />
-    <Content Include="AdminResource\font\glyphiconshalflings-regular.svg" />
     <Content Include="AdminResource\images\acrossTab-2.png" />
     <Content Include="AdminResource\images\acrossTab-2bak.png" />
     <Content Include="AdminResource\images\acrossTab-bg.png" />
@@ -2146,7 +2148,6 @@
     <Folder Include="AdminResource\template\product\" />
     <Folder Include="AdminResource\template\shop\" />
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -2181,20 +2182,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AdminResource\font\fontawesome-webfont-0.eot" />
-    <Content Include="AdminResource\font\fontawesome-webfont-62877.eot" />
-    <Content Include="AdminResource\font\fontawesome-webfont-62877.ttf" />
-    <Content Include="AdminResource\font\fontawesome-webfont-62877.woff" />
-    <Content Include="AdminResource\font\glyphicons-regular-0.eot" />
-    <Content Include="AdminResource\font\glyphicons-regular.eot" />
-    <Content Include="AdminResource\font\glyphicons-regular.ttf" />
-    <Content Include="AdminResource\font\glyphicons-regular.woff" />
-    <Content Include="AdminResource\font\glyphiconshalflings-regular-0.eot" />
-    <Content Include="AdminResource\font\glyphiconshalflings-regular.eot" />
-    <Content Include="AdminResource\font\glyphiconshalflings-regular.ttf" />
-    <Content Include="AdminResource\font\glyphiconshalflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
@@ -2375,6 +2362,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminResource\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="AdminResource\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="AdminResource\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="AdminResource\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
