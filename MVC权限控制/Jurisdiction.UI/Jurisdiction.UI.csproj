@@ -2162,6 +2162,10 @@
       <Project>{44f402ee-f6ce-4260-aa93-d258ca51e8e1}</Project>
       <Name>Jurisdiction.IBLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Redis\Redis.csproj">
+      <Project>{e2f81707-4de4-47c8-881e-892446a82180}</Project>
+      <Name>Redis</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebHelper\WebHelper.csproj">
       <Project>{bda76093-5428-4c3b-b390-b0d45a92716b}</Project>
       <Name>WebHelper</Name>

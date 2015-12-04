@@ -13,6 +13,7 @@ using Jurisdiction.EntityView;
 using Jurisdiction.Extend;
 using System.IO;
 using System.Drawing;
+using Redis;
 
 namespace Jurisdiction.UI.Areas.Admin.Controllers
 {
@@ -29,7 +30,7 @@ namespace Jurisdiction.UI.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            Session["bb"] = "22";
+            RedisManager.Lpush("text", "哈哈");
             return View();
         }
 
@@ -39,7 +40,7 @@ namespace Jurisdiction.UI.Areas.Admin.Controllers
         /// <returns></returns>
         public ActionResult ProcessLogin(string loginName, string passWord, string isPersistence, string vcode)
         {
-           
+            var aa = RedisManager.LPop<string>("text");
           
             if (string.IsNullOrEmpty(loginName))
             {

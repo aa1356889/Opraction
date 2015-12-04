@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebHelper;
 using WebHelper.Attrbute;
 
 namespace Jurisdiction.UI.Areas.Admin.Controllers
@@ -47,6 +48,25 @@ namespace Jurisdiction.UI.Areas.Admin.Controllers
              return View();
          }
 
+
+        /// <summary>
+        /// 新增用户信息
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+         public ActionResult AddUser(Users user)
+         {
+             user.UpassWord=Kite.Md5Entry(user.UpassWord);
+             userbll.Add(user);
+             if (userbll.Save())
+             {
+                 return ProcessOk("新增用户成功");
+             }
+             else
+             {
+                 return ProcessNo("新增用户失败");
+             }
+         }
 
         /// <summary>
         /// 获得所有角色信息和用户拥有角色信息

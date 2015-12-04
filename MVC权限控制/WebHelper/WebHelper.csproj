@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attrbute\InitValidateUrlAttrbute.cs" />
+    <Compile Include="ByteConvertHelper.cs" />
     <Compile Include="CaheManager.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="JsonHelper.cs" />

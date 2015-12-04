@@ -97,3 +97,9 @@ G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\obj\Debug\Jurisdiction.UI.csp
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\obj\Debug\Jurisdiction.UI.dll
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\obj\Debug\Jurisdiction.UI.pdb
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Newtonsoft.Json.pdb
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Redis.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\ServiceStack.Redis.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\ServiceStack.Interfaces.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\ServiceStack.Text.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\ServiceStack.Common.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Redis.pdb

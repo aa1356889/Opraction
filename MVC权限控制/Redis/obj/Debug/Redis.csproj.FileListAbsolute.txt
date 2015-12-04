@@ -1,0 +1,11 @@
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\Redis.dll
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\Redis.pdb
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\ServiceStack.Common.dll
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\ServiceStack.Interfaces.dll
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\ServiceStack.Redis.dll
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\ServiceStack.Text.dll
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\WebHelper.dll
+G:\mvc权限控制\MVC权限控制\Redis\bin\Debug\WebHelper.pdb
+G:\mvc权限控制\MVC权限控制\Redis\obj\Debug\Redis.csprojResolveAssemblyReference.cache
+G:\mvc权限控制\MVC权限控制\Redis\obj\Debug\Redis.dll
+G:\mvc权限控制\MVC权限控制\Redis\obj\Debug\Redis.pdb

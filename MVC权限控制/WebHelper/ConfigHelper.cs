@@ -20,5 +20,24 @@ namespace WebHelper
        {
            return System.Configuration.ConfigurationManager.AppSettings[key];
        }
+
+     
+       #region reids 相关配置信息
+       public static string RedisUrl
+       {
+           get
+           {
+               return LoadConfigAppction("redisUrl");
+           }
+       }
+
+       public static string RedisPort
+       {
+           get
+           {
+               return LoadConfigAppction("redisPort");
+           }
+       } 
+       #endregion
     }
 }
