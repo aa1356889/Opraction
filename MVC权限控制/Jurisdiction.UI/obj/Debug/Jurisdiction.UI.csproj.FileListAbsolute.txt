@@ -103,3 +103,16 @@ G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\ServiceStack.Interfaces.d
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\ServiceStack.Text.dll
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\ServiceStack.Common.dll
 G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Redis.pdb
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.AspNet.SignalR.Core.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.Owin.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.Owin.Security.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Owin.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\SingalR.dll
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\SingalR.pdb
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.AspNet.SignalR.Core.xml
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.Owin.xml
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\mvc权限控制\MVC权限控制\Jurisdiction.UI\bin\Microsoft.Owin.Security.xml

@@ -19,5 +19,17 @@ namespace WebHelper
                return "Vicode";
            }
        }
+
+
+       /// <summary>
+       /// 用于保存队列中的消息key
+       /// </summary>
+       public static string Message
+       {
+           get
+           {
+               return "Message";
+           }
+       }
     }
 }
